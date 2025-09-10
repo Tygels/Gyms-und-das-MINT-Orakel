@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ftt2s6kynp"]
+
+[sub_resource type="GDScript" id="GDScript_e5213"]
+script/source = "extends CharacterBody2D
+
+var speed: float = 200.0  # speed in pixels/sec
+
+func bewegung():
+	var richtung = Vector2.ZERO
+	
+	if Input.is_action_pressed(\"Bewegung_oben\"):
+		richtung.x += 1
+	
+	velocity = richtung * speed
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4ifl7"]
+uv2_padding = 2.59
+radius = 0.001
+height = 10.502
+rings = 100
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs8pb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_e5213")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
+position = Vector2(4, 4.36287)
+scale = Vector2(10000, -1.949)
+mesh = SubResource("CapsuleMesh_4ifl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(4, 4)
+shape = SubResource("CircleShape2D_hs8pb")
