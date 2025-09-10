@@ -1,1 +1,0 @@
-# Gyms-und-das-MINT-Orakel
