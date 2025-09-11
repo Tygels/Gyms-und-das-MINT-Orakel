@@ -35,6 +35,8 @@ func _physics_process(_delta):
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+light_mask = 1023
+visibility_layer = 1023
 script = SubResource("GDScript_e5213")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
@@ -47,3 +49,5 @@ mesh = SubResource("SphereMesh_e5213")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(4, 4)
 shape = SubResource("CircleShape2D_hs8pb")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

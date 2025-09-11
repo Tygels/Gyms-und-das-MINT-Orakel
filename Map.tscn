@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://mb0yv8kcdarm"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y35xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwvd7"]
+size = Vector2(275.762, 73.6074)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+light_mask = 0
+position = Vector2(1, -1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3"]
+light_mask = 0
+position = Vector2(136.219, 0.312433)
+scale = Vector2(1307.56, 601.375)
+mesh = SubResource("QuadMesh_y35xu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
