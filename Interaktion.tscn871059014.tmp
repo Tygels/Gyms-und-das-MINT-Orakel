@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgjajyf4igcvd"]
+[gd_scene load_steps=9 format=3 uid="uid://bq4ihj546gmxr"]
 
 [ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="1_iqaki"]
 [ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="2_0fe0b"]
@@ -40,8 +40,6 @@ func _on_button4_pressed():
 	print(\"Button 4 pressed → calling function D\")
 
 
-func XD():
-	set_path_cache(path: \"res://test data/BackToGameButton.png\")
 "
 
 [node name="Node2D" type="Node2D"]
