@@ -28,11 +28,11 @@ func _physics_process(_delta):
 	move_and_slide()
 "
 
-[sub_resource type="SphereMesh" id="SphereMesh_e5213"]
+[sub_resource type="QuadMesh" id="QuadMesh_e5213"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs8pb"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 light_mask = 1023
@@ -41,10 +41,9 @@ script = SubResource("GDScript_e5213")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
 modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-position = Vector2(4, 4)
-scale = Vector2(20.0227, 20)
-mesh = SubResource("SphereMesh_e5213")
+position = Vector2(4, 4.0625)
+scale = Vector2(20, 19.875)
+mesh = SubResource("QuadMesh_e5213")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(4, 4)

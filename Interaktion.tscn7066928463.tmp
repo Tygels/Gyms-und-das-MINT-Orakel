@@ -53,6 +53,7 @@ offset_bottom = 451.0
 script = ExtResource("2_v2uh4")
 
 [node name="MainButtons" type="Control" parent="ButtonMenu"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 120.0
@@ -79,7 +80,6 @@ icon = ExtResource("5_ttk38")
 [node name="Node" type="Node" parent="ButtonMenu/MainButtons"]
 
 [node name="ChatUI" type="Control" parent="ButtonMenu"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -97,8 +97,8 @@ offset_bottom = 486.0
 layout_mode = 0
 offset_left = 34.0
 offset_top = 14.0
-offset_right = 1707.0
-offset_bottom = 352.0
+offset_right = 74.0
+offset_bottom = 54.0
 
 [node name="TextBox" type="VBoxContainer" parent="ButtonMenu/ChatUI/ChatBackground/Chat"]
 layout_mode = 2
@@ -109,7 +109,6 @@ offset_left = -835.0
 offset_top = 421.0
 offset_right = 548.0
 offset_bottom = 459.0
-placeholder_text = "Hier kannst du die Ki fragen"
 
 [node name="SendButton" type="Button" parent="ButtonMenu/ChatUI"]
 layout_mode = 0
@@ -117,6 +116,5 @@ offset_left = 585.0
 offset_top = 410.0
 offset_right = 849.0
 offset_bottom = 458.0
-text = "Senden"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ButtonMenu/ChatUI"]

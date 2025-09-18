@@ -23,7 +23,6 @@ position = Vector2(1, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-173, 1)
 rotation = -1.57125
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gwvd7")
 debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
 
