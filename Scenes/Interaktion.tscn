@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bq4ihj546gmxr"]
 
-[ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="1_iqaki"]
-[ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="2_0fe0b"]
-[ext_resource type="Script" uid="uid://dkoxgsbh4e6k4" path="res://Interaktion.tres.gd" id="2_v2uh4"]
-[ext_resource type="Script" uid="uid://bdu2j2qwitai4" path="res://chat_ui.gd" id="5_0fe0b"]
-[ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="5_ttk38"]
+[ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="1_835lw"]
+[ext_resource type="Script" uid="uid://dkoxgsbh4e6k4" path="res://Scripts/Interaktion.tres.gd" id="2_34uh1"]
+[ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
+[ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
+[ext_resource type="Script" uid="uid://bdu2j2qwitai4" path="res://Scripts/chat_ui.gd" id="5_3n7ag"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iqaki"]
 
@@ -18,11 +18,10 @@ position = Vector2(-6, -14)
 zoom = Vector2(0.6, 0.6)
 
 [node name="Hintergrund" type="TextureRect" parent="Node"]
-visible = false
-offset_left = -583.0
-offset_top = -323.0
-offset_right = 569.0
-offset_bottom = 325.0
+offset_left = -966.0
+offset_top = -554.0
+offset_right = 954.0
+offset_bottom = 526.0
 texture = SubResource("PlaceholderTexture2D_iqaki")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -39,7 +38,7 @@ offset_right = 288.0
 offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_iqaki")
+texture = ExtResource("1_835lw")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Node/Textbox"]
@@ -50,7 +49,7 @@ offset_right = 1086.0
 offset_bottom = 451.0
 
 [node name="ButtonMenu" type="Node" parent="."]
-script = ExtResource("2_v2uh4")
+script = ExtResource("2_34uh1")
 
 [node name="MainButtons" type="Control" parent="ButtonMenu"]
 layout_mode = 3
@@ -66,7 +65,7 @@ offset_left = 6.99997
 offset_top = 288.0
 offset_right = 715.0
 offset_bottom = 496.0
-icon = ExtResource("2_0fe0b")
+icon = ExtResource("3_voxyk")
 
 [node name="StartButton" type="Button" parent="ButtonMenu/MainButtons"]
 layout_mode = 0
@@ -74,7 +73,7 @@ offset_left = -942.0
 offset_top = 124.0
 offset_right = -234.0
 offset_bottom = 332.0
-icon = ExtResource("5_ttk38")
+icon = ExtResource("4_ok03x")
 
 [node name="Node" type="Node" parent="ButtonMenu/MainButtons"]
 
@@ -84,7 +83,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_0fe0b")
+script = ExtResource("5_3n7ag")
 
 [node name="ChatBackground" type="Panel" parent="ButtonMenu/ChatUI"]
 layout_mode = 0
