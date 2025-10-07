@@ -1,14 +1,15 @@
 extends Node2D
 
-@onready var Spieler = $Spieler
+@onready var Lehrer = $Area2D
+@onready var Spieler = get_tree().current_scene.get_node("Spieler")
 @export var teacher_id: String = ""
 var data = null
 signal interacted(teacher_id)
 
 func _ready():
 	$InteractHint.visible = false
-	$Area2D.body_entered.connect(_on_Area2D_body_entered)
-	$Area2D.body_exited.connect(_on_Area2D_body_exited)
+	Lehrer.body_entered.connect(_on_Area2D_body_entered)
+	Lehrer.body_exited.connect(_on_Area2D_body_exited)
 
 
 func set_data(d: Dictionary) -> void:
@@ -17,17 +18,14 @@ func set_data(d: Dictionary) -> void:
 		$Portrait.texture = load(data["portrait"]) if ResourceLoader.exists(data["portrait"]) else null
 
 
-func _on_Area2D_body_entered(body):
-	if body.name == "Spieler":
-		$InteractHint.visible = true
+func _on_Area2D_body_entered(_body):
+	$InteractHint.visible = true
 
 
-func _on_Area2D_body_exited(body):
-	if body.name == "Spieler":
-		$InteractHint.visible = false
+func _on_Area2D_body_exited(_body):
+	$InteractHint.visible = false
 
-
-func _input(event):
-# When player presses E while in range, emit interacted
-	if event.is_action_pressed("ui_accept") and $InteractHint.visible:
+func _process(_delta):
+	if Input.is_action_pressed("Lehrer_UI_open") and $InteractHint.visible == true:
 		emit_signal("interacted", teacher_id)
+		$InteractHint.visible = false

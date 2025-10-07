@@ -119,3 +119,11 @@ offset_bottom = 458.0
 text = "Senden"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ButtonMenu/ChatUI"]
+
+[node name="BackButton" type="Button" parent="ButtonMenu/ChatUI"]
+layout_mode = 0
+offset_left = -945.0
+offset_top = 28.0
+offset_right = -786.0
+offset_bottom = 96.0
+text = "Back"

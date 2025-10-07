@@ -17,9 +17,11 @@ texture = ExtResource("1_6kepi")
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1.255)
 shape = SubResource("RectangleShape2D_1ye6k")
 
 [node name="InteractHint" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
 offset_left = -284.0
 offset_top = -318.0
 offset_right = -42.0
