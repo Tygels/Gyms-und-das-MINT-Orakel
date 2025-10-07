@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "nk1wE3WrMDU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dieko\\source\\repos\\Gyms-und-das-Mint-Orakel\\Gyms-und-das-Mint-Orakel\\Gyms-und-das-Mint-Orakel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dieko\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\dieko\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\dieko\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
