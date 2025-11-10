@@ -1,65 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq4ihj546gmxr"]
+[gd_scene load_steps=7 format=3 uid="uid://cf7dxolpk0me7"]
 
 [ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="1_835lw"]
-[ext_resource type="Script" uid="uid://dkoxgsbh4e6k4" path="res://Scripts/Interaktion.tres.gd" id="2_34uh1"]
+[ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/main_buttons.gd" id="2_us1gg"]
 [ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
 [ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
-[ext_resource type="Script" uid="uid://bdu2j2qwitai4" path="res://Scripts/chat_ui.gd" id="5_3n7ag"]
+[ext_resource type="Script" uid="uid://bdu2j2qwitai4" path="res://Scripts/chat_ui.gd" id="5_1ettj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iqaki"]
 
-[node name="Node2D" type="Node2D"]
-metadata/_edit_lock_ = true
+[node name="Interaktion" type="Node2D"]
+scale = Vector2(0.599996, 0.59998)
 
-[node name="Node" type="Node" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="Node"]
-position = Vector2(-6, -14)
-zoom = Vector2(0.6, 0.6)
-
-[node name="Hintergrund" type="TextureRect" parent="Node"]
-offset_left = -966.0
-offset_top = -554.0
-offset_right = 954.0
-offset_bottom = 526.0
+[node name="Hintergrund" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = SubResource("PlaceholderTexture2D_iqaki")
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
-[node name="Textbox" type="TextureRect" parent="Node"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1440.0
-offset_top = -272.0
-offset_right = 288.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Textbox" type="TextureRect" parent="."]
+offset_left = 102.0
+offset_top = 620.0
+offset_right = 1830.0
+offset_bottom = 1052.0
 texture = ExtResource("1_835lw")
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="Node/Textbox"]
+[node name="Label" type="Label" parent="Textbox"]
 layout_mode = 0
 offset_left = 133.0
 offset_top = 359.0
 offset_right = 1086.0
 offset_bottom = 451.0
 
-[node name="ButtonMenu" type="Node" parent="."]
-script = ExtResource("2_34uh1")
-
-[node name="MainButtons" type="Control" parent="ButtonMenu"]
+[node name="MainButtons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 120.0
-offset_top = -25.0
-offset_right = 160.0
-offset_bottom = 15.0
+offset_left = 1086.0
+offset_top = 529.0
+offset_right = 1126.0
+offset_bottom = 569.0
+scale = Vector2(0.996104, 0.928009)
+script = ExtResource("2_us1gg")
 
-[node name="ExitButton" type="Button" parent="ButtonMenu/MainButtons"]
+[node name="ExitButton" type="Button" parent="MainButtons"]
 layout_mode = 0
 offset_left = 6.99997
 offset_top = 288.0
@@ -67,7 +50,7 @@ offset_right = 715.0
 offset_bottom = 496.0
 icon = ExtResource("3_voxyk")
 
-[node name="StartButton" type="Button" parent="ButtonMenu/MainButtons"]
+[node name="StartButton" type="Button" parent="MainButtons"]
 layout_mode = 0
 offset_left = -942.0
 offset_top = 124.0
@@ -75,55 +58,55 @@ offset_right = -234.0
 offset_bottom = 332.0
 icon = ExtResource("4_ok03x")
 
-[node name="Node" type="Node" parent="ButtonMenu/MainButtons"]
+[node name="Node" type="Node" parent="MainButtons"]
 
-[node name="ChatUI" type="Control" parent="ButtonMenu"]
+[node name="ChatUI" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_3n7ag")
+script = ExtResource("5_1ettj")
 
-[node name="ChatBackground" type="Panel" parent="ButtonMenu/ChatUI"]
+[node name="ChatBackground" type="Panel" parent="ChatUI"]
 layout_mode = 0
-offset_left = -866.0
-offset_top = 53.0
-offset_right = 865.0
-offset_bottom = 486.0
+offset_left = 102.0
+offset_top = 618.0
+offset_right = 1833.0
+offset_bottom = 1051.0
 
-[node name="Chat" type="ScrollContainer" parent="ButtonMenu/ChatUI/ChatBackground"]
+[node name="Chat" type="ScrollContainer" parent="ChatUI/ChatBackground"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 14.0
 offset_right = 1707.0
 offset_bottom = 352.0
 
-[node name="TextBox" type="VBoxContainer" parent="ButtonMenu/ChatUI/ChatBackground/Chat"]
+[node name="TextBox" type="VBoxContainer" parent="ChatUI/ChatBackground/Chat"]
 layout_mode = 2
 
-[node name="InputBox" type="LineEdit" parent="ButtonMenu/ChatUI"]
+[node name="SendButton" type="Button" parent="ChatUI"]
 layout_mode = 0
-offset_left = -835.0
-offset_top = 421.0
-offset_right = 548.0
-offset_bottom = 459.0
-placeholder_text = "Hier kannst du die Ki fragen"
-
-[node name="SendButton" type="Button" parent="ButtonMenu/ChatUI"]
-layout_mode = 0
-offset_left = 585.0
-offset_top = 410.0
-offset_right = 849.0
-offset_bottom = 458.0
+offset_left = 1538.0
+offset_top = 986.0
+offset_right = 1809.0
+offset_bottom = 1025.0
 text = "Senden"
 
-[node name="HTTPRequest" type="HTTPRequest" parent="ButtonMenu/ChatUI"]
-
-[node name="BackButton" type="Button" parent="ButtonMenu/ChatUI"]
+[node name="InputBox" type="LineEdit" parent="ChatUI"]
 layout_mode = 0
-offset_left = -945.0
-offset_top = 28.0
-offset_right = -786.0
-offset_bottom = 96.0
+offset_left = 133.0
+offset_top = 986.0
+offset_right = 1516.0
+offset_bottom = 1024.0
+placeholder_text = "Hier kannst du die Ki fragen"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI"]
+
+[node name="BackButton" type="Button" parent="ChatUI"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 540.0
+offset_right = 214.0
+offset_bottom = 608.0
 text = "Back"

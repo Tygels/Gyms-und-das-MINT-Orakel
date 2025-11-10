@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://chcy38ibkumm0"]
+
+[ext_resource type="PackedScene" uid="uid://mb0yv8kcdarm" path="res://Scenes/Map.tscn" id="1_kldst"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://b54jfujwpglh2" path="res://Scenes/Lehrer - NPC.tscn" id="3_7lihs"]
+[ext_resource type="Script" uid="uid://u0kcq2bkriv6" path="res://Scenes/test.gd" id="4_fgofq"]
+[ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="5_b2bpf"]
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_kldst")]
+position = Vector2(88, 5)
+
+[node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
+position = Vector2(228, 1)
+
+[node name="Lehrer" parent="." instance=ExtResource("3_7lihs")]
+position = Vector2(548, -5)
+scale = Vector2(0.57, 0.57)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_fgofq")
+
+[node name="xpot" type="Button" parent="Node"]
+offset_left = 50.0
+offset_top = 21.0
+offset_right = 117.0
+offset_bottom = 58.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Interaktion" parent="." instance=ExtResource("5_b2bpf")]
+position = Vector2(-353, -329)

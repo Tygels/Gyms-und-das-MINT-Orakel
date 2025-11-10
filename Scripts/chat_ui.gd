@@ -36,5 +36,5 @@ func _add_message(text: String):
 	label.custom_minimum_size.x = chat_box.size.x   # match container width
 	chat_box.add_child(label)
 func _on_back_pressed():
-	get_node("/root/Node2D/ButtonMenu/MainButtons").visible = !get_node("/root/Node2D/ButtonMenu/MainButtons").visible
-	get_node("/root/Node2D/ButtonMenu/ChatUI").visible = !get_node("/root/Node2D/ButtonMenu/ChatUI").visible
+	get_node("/root/Node2D/MainButtons").visible = !get_node("/root/Node2D/MainButtons").visible
+	get_node("/root/Node2D/ChatUI").visible = !get_node("/root/Node2D/ChatUI").visible
