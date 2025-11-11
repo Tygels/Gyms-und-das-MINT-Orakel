@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://hkja62n8eiui"]
+
+[ext_resource type="Script" uid="uid://bvvb6qrl2rekp" path="res://AIChat-test.gd" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_37kl0")
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_right = 526.0
+offset_bottom = 118.0
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.25
+anchor_top = 3.9
+anchor_right = 10.25
+anchor_bottom = 3.9
+offset_left = -336.0
+offset_top = 7.0
+offset_right = -115.0
+offset_bottom = 58.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 163.0
+offset_right = 479.0
+offset_bottom = 193.0
+text = "send"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Control/Button"]
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]
+[connection signal="request_completed" from="Control/Button/HTTPRequest" to="Control" method="_on_http_request_request_completed"]

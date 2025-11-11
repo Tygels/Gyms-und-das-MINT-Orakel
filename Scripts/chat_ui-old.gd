@@ -37,4 +37,4 @@ func _add_message(text: String):
 	chat_box.add_child(label)
 func _on_back_pressed():
 	get_node("/root/Node2D/MainButtons").visible = !get_node("/root/Node2D/MainButtons").visible
-	get_node("/root/Node2D/ChatUI").visible = !get_node("/root/Node2D/ChatUI").visible
+	$ChatUI.visible = $ChatUI.visible

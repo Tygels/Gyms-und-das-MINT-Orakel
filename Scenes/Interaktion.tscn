@@ -4,9 +4,86 @@
 [ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/main_buttons.gd" id="2_us1gg"]
 [ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
 [ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
-[ext_resource type="Script" uid="uid://bdu2j2qwitai4" path="res://Scripts/chat_ui.gd" id="5_1ettj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iqaki"]
+
+[sub_resource type="GDScript" id="GDScript_kd0cs"]
+script/source = "extends Control
+
+# References to the UI nodes
+@onready var chat_history = $ChatBackground/Chat
+@onready var player_input = $InputBox
+@onready var send_button = $SendButton
+@onready var http_request = $HTTPRequest
+
+# API configuration
+var api_key = \"API_KEY\"  # Replace with your OpenAI API key
+var url = \"URL\"  # GPT-3/4 completions endpoint
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Connect the button signal
+	send_button.connect(\"pressed\", self, \"_on_send_button_pressed\")
+	
+	# Display welcome message when chatbox starts
+	_add_message_to_chat(\"AI\", \"Hello, traveler! How can I assist you today?\")
+
+# Function to handle sending messages
+func _on_send_button_pressed():
+	var player_message = player_input.text.strip_edges()
+	
+	if player_message != \"\":
+		_add_message_to_chat(\"Player\", player_message)  # Add player's message to chat
+		player_input.clear()  # Clear the input field
+		
+		# Send the player's message to OpenAI and get a response
+		_send_to_ai(player_message)
+
+# Function to add messages to the chat history
+func _add_message_to_chat(sender: String, message: String):
+	# Append the message to the chat history
+	chat_history.text += \"[\" + sender + \"]: \" + message + \"\\n\"
+	# Scroll to the bottom of the chat history
+	chat_history.scroll_bottom()
+
+# Function to send the player message to OpenAI and get a response
+func _send_to_ai(player_message: String):
+	var headers = {
+		\"Content-Type\": \"application/json\",
+		\"Authorization\": \"Bearer \" + api_key
+	}
+	
+	var data = {
+		\"model\": \"text-davinci-003\",  # You can choose the specific model (GPT-3 or GPT-4)
+		\"prompt\": player_message,
+		\"max_tokens\": 150,  # Adjust as needed
+		\"temperature\": 0.7,  # Controls randomness of the response
+		\"top_p\": 1,
+		\"frequency_penalty\": 0,
+		\"presence_penalty\": 0
+	}
+
+	var json_data = JSON.print(data)  # Convert the dictionary to a JSON string
+	http_request.request(openai_url, headers, true, HTTPRequest.METHOD_POST, json_data)
+	
+# Callback when HTTP request is finished
+func _on_request_completed(result: int, response_code: int, headers: Array, body: PoolByteArray):
+	if response_code == 200:
+		# Parse the response body from OpenAI API
+		var response_json = JSON.parse(body.get_string_from_utf8())
+		
+		if response_json.error:
+			_add_message_to_chat(\"AI\", \"Oops! Something went wrong with the AI.\")
+			return
+		
+		# Extract the response text
+		var ai_message = response_json.result[0].text.strip_edges()
+		
+		# Add the AI response to the chat
+		_add_message_to_chat(\"AI\", ai_message)
+	else:
+		_add_message_to_chat(\"AI\", \"There was an error connecting to the AI service.\")
+"
 
 [node name="Interaktion" type="Node2D"]
 scale = Vector2(0.599996, 0.59998)
@@ -33,6 +110,7 @@ offset_right = 1086.0
 offset_bottom = 451.0
 
 [node name="MainButtons" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1086.0
@@ -61,12 +139,11 @@ icon = ExtResource("4_ok03x")
 [node name="Node" type="Node" parent="MainButtons"]
 
 [node name="ChatUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_1ettj")
+script = SubResource("GDScript_kd0cs")
 
 [node name="ChatBackground" type="Panel" parent="ChatUI"]
 layout_mode = 0
@@ -74,6 +151,9 @@ offset_left = 102.0
 offset_top = 618.0
 offset_right = 1833.0
 offset_bottom = 1051.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI/ChatBackground"]
+max_redirects = -1
 
 [node name="Chat" type="ScrollContainer" parent="ChatUI/ChatBackground"]
 layout_mode = 0
@@ -100,8 +180,6 @@ offset_top = 986.0
 offset_right = 1516.0
 offset_bottom = 1024.0
 placeholder_text = "Hier kannst du die Ki fragen"
-
-[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI"]
 
 [node name="BackButton" type="Button" parent="ChatUI"]
 layout_mode = 0
