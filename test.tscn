@@ -10,12 +10,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_37kl0")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextEdit" type="TextEdit" parent="Control"]
 layout_mode = 0
 offset_right = 526.0
 offset_bottom = 118.0
 editable = false
+metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="Control"]
 layout_mode = 1
@@ -28,6 +30,7 @@ offset_left = -336.0
 offset_top = 7.0
 offset_right = -115.0
 offset_bottom = 58.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
@@ -36,6 +39,7 @@ offset_top = 163.0
 offset_right = 479.0
 offset_bottom = 193.0
 text = "send"
+metadata/_edit_use_anchors_ = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Control/Button"]
 

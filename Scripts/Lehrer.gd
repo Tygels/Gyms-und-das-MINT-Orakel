@@ -14,7 +14,7 @@ func _ready():
 
 func set_data(d: Dictionary) -> void:
 	data = d
-	if data.has("portdrait"):
+	if data.has("portrait"):
 		$Portrait.texture = load(data["portrait"]) if ResourceLoader.exists(data["portrait"]) else null
 
 

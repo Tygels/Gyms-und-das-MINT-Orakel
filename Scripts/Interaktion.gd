@@ -1,7 +1,8 @@
-extends Control
+extends Node2D
 
-@onready var startButton = $StartButton
-@onready var exitButton = $ExitButton
+@onready var startButton = $MainButtons/StartButton
+@onready var exitButton = $MainButtons/ExitButton
+signal exit_button_pressed
 
 func _ready():
 	# Connect signals
@@ -12,4 +13,5 @@ func _on_startButton_pressed():
 	get_node("/root/Interaktion/MainButtons").visible = !get_node("/root/Interaktion/MainButtons").visible
 	get_node("/root/Interaktion/ChatUI").visible = !get_node("/root/Interaktion/ChatUI").visible
 func _on_exitButton_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Default.tscn")
+	
+	emit_signal("exit_button_pressed")
