@@ -1,13 +1,15 @@
 extends Node2D
 
+@onready var InteractHint = $Label
 @onready var Lehrer = $Area2D
 @onready var Spieler = get_tree().current_scene.get_node("Spieler")
 @export var teacher_id: String = ""
 var data = null
 signal interacted(teacher_id)
+var id
 
 func _ready():
-	$InteractHint.visible = false
+	InteractHint.visible = false
 	Lehrer.body_entered.connect(_on_Area2D_body_entered)
 	Lehrer.body_exited.connect(_on_Area2D_body_exited)
 
@@ -19,13 +21,13 @@ func set_data(d: Dictionary) -> void:
 
 
 func _on_Area2D_body_entered(_body):
-	$InteractHint.visible = true
+	InteractHint.visible = true
 
 
 func _on_Area2D_body_exited(_body):
-	$InteractHint.visible = false
+	InteractHint.visible = false
 
 func _process(_delta):
-	if Input.is_action_pressed("Lehrer_UI_open") and $InteractHint.visible == true:
+	if Input.is_action_pressed("Lehrer_UI_open") and InteractHint.visible == true:
 		emit_signal("interacted", teacher_id)
-		$InteractHint.visible = false
+		InteractHint.visible = false

@@ -3,9 +3,10 @@ extends Node2D
 var speed = 200.0  # speed in pixels/sec
 @onready var spieler = $CharacterBody2D
 @onready var Interaktion = $CharacterBody2D/Interaktion
+signal interacted(teacher_id)
 
 func _ready() -> void:
-	pass
+	connect("interacted", _on_lehrer_interacted)
 
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO
