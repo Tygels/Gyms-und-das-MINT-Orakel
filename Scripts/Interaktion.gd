@@ -20,5 +20,6 @@ func _on_exitButton_pressed():
 	
 	emit_signal("exit_button_pressed")
 
-func on_backButton_pressed():
-	pass
+func _on_backButton_pressed():
+	mainButtons.visible = !mainButtons.visible
+	chatUI.visible = !chatUI.visible
