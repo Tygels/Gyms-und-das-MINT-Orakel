@@ -7,6 +7,8 @@ signal interacted(teacher_id)
 
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
+	Interaktion.exit_button_pressed.connect(_on_interaktion_exit_button_pressed)
+
 
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO

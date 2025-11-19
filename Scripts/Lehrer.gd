@@ -2,17 +2,15 @@ extends Node2D
 
 @onready var InteractHint = $Label
 @onready var Lehrer = $Area2D
-@onready var Spieler = get_tree().current_scene.get_node("Spieler")
-@export var teacher_id: String = ""
+var teacher_id
 var data = null
 signal interacted(teacher_id)
-var id
+
 
 func _ready():
 	InteractHint.visible = false
 	Lehrer.body_entered.connect(_on_Area2D_body_entered)
 	Lehrer.body_exited.connect(_on_Area2D_body_exited)
-
 
 func set_data(d: Dictionary) -> void:
 	data = d

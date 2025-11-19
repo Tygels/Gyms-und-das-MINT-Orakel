@@ -7,6 +7,9 @@
 
 [node name="Node2D2" type="Node2D"]
 
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("4_kldst")
+
 [node name="Map" parent="." instance=ExtResource("1_kldst")]
 position = Vector2(88, 5)
 
@@ -16,8 +19,5 @@ scale = Vector2(0.57, 0.57)
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
 position = Vector2(228, 1)
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("4_kldst")
 
 [connection signal="interacted" from="Lehrer" to="Spieler" method="_on_lehrer_interacted"]

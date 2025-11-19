@@ -15,7 +15,10 @@ func spawn_npc(id: int, position: Vector2):
 	var npc_instance = lehrerSzene.instantiate()
 
 	#Parameter gleichlegen
-	npc_instance.id = id
+	npc_instance.teacher_id = id
 	npc_instance.position = position
 	
 	add_child(npc_instance)
+	
+	var spieler = get_tree().current_scene.get_node("Spieler")
+	npc_instance.interacted.connect(spieler._on_lehrer_interacted)
