@@ -7,14 +7,15 @@
 
 [node name="Node2D2" type="Node2D"]
 
-[node name="LehrerSpawner" type="Node" parent="."]
-script = ExtResource("4_kldst")
-
 [node name="Map" parent="." instance=ExtResource("1_kldst")]
 position = Vector2(88, 5)
 
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("4_kldst")
+
 [node name="Lehrer" parent="." instance=ExtResource("3_7lihs")]
-position = Vector2(548, -5)
+visible = false
+position = Vector2(285, -455)
 scale = Vector2(0.57, 0.57)
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]

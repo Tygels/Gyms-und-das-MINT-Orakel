@@ -4,10 +4,12 @@ var speed = 200.0  # speed in pixels/sec
 @onready var spieler = $CharacterBody2D
 @onready var Interaktion = $CharacterBody2D/Interaktion
 signal interacted(teacher_id)
+var current_teacher = null
+@onready var spawner = $"../LehrerSpawner"
 
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
-	Interaktion.exit_button_pressed.connect(_on_interaktion_exit_button_pressed)
+
 
 
 func _physics_process(_delta):
@@ -31,12 +33,20 @@ func _physics_process(_delta):
 
 	spieler.velocity = richtung * speed
 
-
 	spieler.move_and_slide()
 
 
 func _on_lehrer_interacted(teacher_id: Variant) -> void:
+	for npc in spawner.npc_list:
+		if npc.teacher_id == teacher_id:
+			current_teacher = npc
+			break
 	Interaktion.visible = true
 
 func _on_interaktion_exit_button_pressed() -> void:
 	Interaktion.visible = false
+	
+	if current_teacher:
+		current_teacher.show()
+		current_teacher.is_active = true
+		current_teacher = null

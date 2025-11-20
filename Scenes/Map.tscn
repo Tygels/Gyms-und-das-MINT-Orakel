@@ -10,18 +10,20 @@ size = Vector2(275.762, 73.6074)
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 light_mask = 0
 position = Vector2(1, -1)
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3"]
 light_mask = 0
 position = Vector2(136.219, 0.312433)
 scale = Vector2(1920, 1080)
 mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(970, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-173, 1)
+position = Vector2(-1570, -277)
 rotation = -1.57125
 shape = SubResource("RectangleShape2D_gwvd7")
 debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
@@ -31,3 +33,339 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(0.391736, -0.629413)
 scale = Vector2(274.835, 71.6439)
 mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="StaticBody2D2"]
+position = Vector2(-427, -251)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/StaticBody2D2"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/StaticBody2D2/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="StaticBody2D2"]
+position = Vector2(-84, -317)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/StaticBody2D4"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/StaticBody2D4/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="StaticBody2D2"]
+position = Vector2(-80, -48)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/StaticBody2D5"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/StaticBody2D5/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="StaticBody2D2"]
+position = Vector2(-426, -244)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/StaticBody2D6"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/StaticBody2D6/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="StaticBody2D2"]
+position = Vector2(-153, -245)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/StaticBody2D8"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2/StaticBody2D8/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-427, -323)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-80, -48)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(-426, -244)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D6/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(193, -251)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D7/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(-153, -245)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D8/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(195, 24)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D9/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(1165, -245)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D10/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(-80, 229)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D11/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2(893, 226)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D12/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+position = Vector2(-152, 575)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D13/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+position = Vector2(112, 573)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D14/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+position = Vector2(381, 580)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D15/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="."]
+position = Vector2(612, 573)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D16"]
+position = Vector2(-173, 1)
+rotation = -1.57125
+shape = SubResource("RectangleShape2D_gwvd7")
+debug_color = Color(8.66354e-07, 0.602664, 0.684383, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D16/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.391736, -0.629413)
+scale = Vector2(274.835, 71.6439)
+mesh = SubResource("QuadMesh_y35xu")
+metadata/_edit_lock_ = true
