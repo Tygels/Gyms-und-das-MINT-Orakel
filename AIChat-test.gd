@@ -18,7 +18,7 @@ func _on_button_pressed() -> void:
 		pass
 
 
-func _on_line_edit_text_submitted(new_text: String) -> void:
+func _on_line_edit_text_submitted(_new_text: String) -> void:
 	var user_text = lineEdit.text.strip_edges()
 	if(user_text != ""):
 		_add_message_to_chat("Du", user_text)
@@ -27,7 +27,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	else:
 		pass
 
-func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_http_request_request_completed(_result: int, _response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	var data = JSON.parse_string(body.get_string_from_utf8())
 	var response = data.data[0]
 	_add_message_to_chat("KI", response)
