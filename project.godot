@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GymS und Das Mint-Orakel godot"
 run/main_scene="uid://chcy38ibkumm0"
-config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [dotnet]
 
