@@ -6,7 +6,7 @@ extends Control
 @onready var textEdit = $TextEdit
 
 var api = ""
-var url = "https://meowfacts.herokuapp.com/" 
+var url = "https://unhatchable-scott-goniometrically.ngrok-free.dev" 
 
 func _on_button_pressed() -> void:
 	var user_text = lineEdit.text.strip_edges()
