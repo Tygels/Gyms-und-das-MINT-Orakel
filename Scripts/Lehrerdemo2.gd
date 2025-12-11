@@ -4,7 +4,7 @@ extends Node2D
 @onready var Lehrer = $Area2D
 var teacher_id
 var portrait
-signal interacted
+signal interacted2
 
 func _ready():
 	InteractHint.visible = false
@@ -26,4 +26,4 @@ func _on_Area2D_body_exited(_body):
 func _process(_delta):
 	if Input.is_action_pressed("Lehrer_UI_open") and InteractHint.visible == true:
 		InteractHint.visible = false
-		emit_signal("interacted")
+		emit_signal("interacted2")

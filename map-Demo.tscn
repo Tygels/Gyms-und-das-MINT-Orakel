@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://nfr8nyh0a3tf"]
+
+[ext_resource type="Texture2D" uid="uid://cu2irx1sxcmxv" path="res://test data/WhatsApp Bild 2025-12-11 um 09.41.20_6797fd89.jpg" id="1_b1t55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijf6x"]
+size = Vector2(20, 15.900002)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(1.645, 1.645)
+
+[node name="WhatsAppBild20251211Um09_41_206797Fd89" type="Sprite2D" parent="."]
+position = Vector2(0, -1.9999924)
+scale = Vector2(1.655, 1.655)
+texture = ExtResource("1_b1t55")
+metadata/_edit_lock_ = true
+
+[node name="rechter Tisch" type="StaticBody2D" parent="."]
+position = Vector2(200, 281)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rechter Tisch"]
+scale = Vector2(9.665, 50)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true
+
+[node name="Linker Tisch" type="StaticBody2D" parent="."]
+position = Vector2(-192.09726, 279.02737)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Linker Tisch"]
+scale = Vector2(9.665, 50)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true
+
+[node name="Lehrer Tisch" type="StaticBody2D" parent="."]
+position = Vector2(3.039513, -293.00912)
+scale = Vector2(0.56, 0.56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lehrer Tisch"]
+scale = Vector2(13.185, 7.275)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(13, -558)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(24.16, 15.9)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true

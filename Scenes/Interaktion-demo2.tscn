@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf7dxolpk0me7"]
+[gd_scene load_steps=7 format=3 uid="uid://bmfrk0b30da7k"]
 
-[ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="1_835lw"]
-[ext_resource type="Texture2D" uid="uid://dgqowxonwxcvo" path="res://test data/WhatsApp Bild 2025-12-11 um 09.42.06_d43577b8.jpg" id="2_34uh1"]
-[ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
-[ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
-[ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
-[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://test.gd" id="5_835lw"]
+[ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="1_e7fer"]
+[ext_resource type="Texture2D" uid="uid://bsrpny3e5knty" path="res://test data/Screenshot 2025-04-25 174508.png" id="2_v18wq"]
+[ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_sucmy"]
+[ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_i3e13"]
+[ext_resource type="Script" uid="uid://12v46be7cu31" path="res://test-demo2.gd" id="5_e7fer"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iqaki"]
 
 [node name="Interaktion" type="Node2D"]
 scale = Vector2(0.599996, 0.59998)
-script = ExtResource("2_us1gg")
+script = ExtResource("1_e7fer")
 
 [node name="Hintergrund" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_34uh1")
+texture = SubResource("PlaceholderTexture2D_iqaki")
 metadata/_edit_group_ = true
 
 [node name="Textbox" type="TextureRect" parent="."]
@@ -22,7 +23,7 @@ offset_left = 102.0
 offset_top = 620.0
 offset_right = 1830.0
 offset_bottom = 1052.0
-texture = ExtResource("1_835lw")
+texture = ExtResource("2_v18wq")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Textbox"]
@@ -47,7 +48,7 @@ offset_left = 6.99997
 offset_top = 288.0
 offset_right = 715.0
 offset_bottom = 496.0
-icon = ExtResource("3_voxyk")
+icon = ExtResource("3_sucmy")
 
 [node name="StartButton" type="Button" parent="MainButtons"]
 layout_mode = 0
@@ -55,7 +56,7 @@ offset_left = -942.0
 offset_top = 124.0
 offset_right = -234.0
 offset_bottom = 332.0
-icon = ExtResource("4_ok03x")
+icon = ExtResource("4_i3e13")
 
 [node name="Node" type="Node" parent="MainButtons"]
 
@@ -70,7 +71,7 @@ offset_bottom = 40.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_835lw")
+script = ExtResource("5_e7fer")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextEdit" type="TextEdit" parent="ChatUI/Control"]

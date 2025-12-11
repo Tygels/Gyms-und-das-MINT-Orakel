@@ -1,24 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://chcy38ibkumm0"]
+[gd_scene load_steps=6 format=3 uid="uid://chcy38ibkumm0"]
 
-[ext_resource type="PackedScene" uid="uid://mb0yv8kcdarm" path="res://Scenes/Map.tscn" id="1_kldst"]
+[ext_resource type="PackedScene" uid="uid://nfr8nyh0a3tf" path="res://map-Demo.tscn" id="1_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://b54jfujwpglh2" path="res://Scenes/Lehrer - NPC.tscn" id="3_7lihs"]
-[ext_resource type="Script" uid="uid://cbr821g83nb7a" path="res://Scenes/LehrerSpawner.gd" id="4_kldst"]
+[ext_resource type="Script" uid="uid://cohqscihcdo0j" path="res://Scripts/Lehrerdemo2.gd" id="4_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://ca6ngn3omhygi" path="res://Scenes/Lehrer - NPC-demo2.tscn" id="4_kldst"]
 
 [node name="Node2D2" type="Node2D"]
 
-[node name="Map" parent="." instance=ExtResource("1_kldst")]
-position = Vector2(88, 5)
+[node name="Node2D" parent="." instance=ExtResource("1_b2bpf")]
+position = Vector2(229, 6)
+scale = Vector2(0.965, 0.965)
 
 [node name="LehrerSpawner" type="Node" parent="."]
-script = ExtResource("4_kldst")
 
 [node name="Lehrer" parent="." instance=ExtResource("3_7lihs")]
-visible = false
-position = Vector2(285, -455)
-scale = Vector2(0.57, 0.57)
+position = Vector2(9.999999, -329.99997)
+scale = Vector2(0.485, 0.485)
+
+[node name="Lehrer2" parent="." instance=ExtResource("4_kldst")]
+position = Vector2(514, -324)
+scale = Vector2(0.485, 0.485)
+script = ExtResource("4_b2bpf")
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
 position = Vector2(228, 1)
 
 [connection signal="interacted" from="Lehrer" to="Spieler" method="_on_lehrer_interacted"]
+[connection signal="interacted2" from="Lehrer2" to="Spieler" method="_on_lehrer_2_interacted_2"]

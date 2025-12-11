@@ -3,14 +3,16 @@ extends Node2D
 var speed = 200.0  # speed in pixels/sec
 @onready var spieler = $CharacterBody2D
 @onready var Interaktion = $CharacterBody2D/Interaktion
-signal interacted(teacher_id)
+@onready var Interaktion2 = $CharacterBody2D/Interaktion2
+@onready var exitbutton2 = $CharacterBody2D/Interaktion2/MainButtons/ExitButton
 var current_teacher = null
 @onready var spawner = $"../LehrerSpawner"
-var interactionSzene: PackedScene = preload("res://Scenes/Interaktion.tscn")
-var cInteractionSzene
 
-func _ready() -> void:
-	connect("interacted", _on_lehrer_interacted)
+
+
+func _ready():
+	Interaktion.exit_button_pressed.connect(_on_Interaktion_exit_button_pressed)
+	Interaktion2.exit_button_pressed.connect(_on_Interaktion2_exit_button_pressed)
 
 
 func _physics_process(_delta):
@@ -37,30 +39,20 @@ func _physics_process(_delta):
 	spieler.move_and_slide()
 
 
-func _on_lehrer_interacted(teacher_id: Variant) -> void:
-	for npc in spawner.npc_list:
-		if npc.teacher_id == teacher_id:
-			current_teacher = npc
-			break
-	interaction(teacher_id)
+func _on_lehrer_interacted() -> void:
+	interaction()
 
 #initialisiert die Interation
-func interaction(teacher_id: Variant) -> void: 
-	cInteractionSzene = interactionSzene.instantiate()
+func interaction() -> void: 
+	Interaktion.visible = true
 	
-	cInteractionSzene.teacher_id = teacher_id
-	cInteractionSzene.connect("exit_button_pressed", _on_interaktion_exit_button_pressed)
-	
-	add_child(cInteractionSzene)
-	
+func _on_lehrer_2_interacted_2() -> void:
+	Interaktion2.visible = true
 
-func _on_interaktion_exit_button_pressed() -> void:
-	print("Signal arrived")
-	if cInteractionSzene:
-		cInteractionSzene.remove_child(cInteractionSzene)
-		cInteractionSzene = null
+
+func _on_Interaktion_exit_button_pressed() -> void:
+	Interaktion.visible = false
 	
-	if current_teacher:
-		current_teacher.show()
-		current_teacher.is_active = true
-		current_teacher = null
+	
+func _on_Interaktion2_exit_button_pressed() -> void:
+	Interaktion2.visible = false

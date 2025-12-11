@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b54jfujwpglh2"]
+[gd_scene load_steps=4 format=3 uid="uid://ca6ngn3omhygi"]
 
-[ext_resource type="Texture2D" uid="uid://cvo7fqcfep4ig" path="res://Dateien/Dr. Wagener Icon-default.png" id="1_6kepi"]
-[ext_resource type="Script" uid="uid://532ntrbd5pc3" path="res://Scripts/Lehrer.gd" id="1_hh1sx"]
+[ext_resource type="Script" uid="uid://532ntrbd5pc3" path="res://Scripts/Lehrer.gd" id="1_0qwuj"]
+[ext_resource type="Texture2D" uid="uid://b63de58wfaeh3" path="res://test data/testTeacher1.png" id="2_0qwuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ye6k"]
 size = Vector2(2208, 2776)
 
 [node name="Lehrer" type="Node2D"]
-script = ExtResource("1_hh1sx")
+script = ExtResource("1_0qwuj")
 
 [node name="Portrait" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_6kepi")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_0qwuj")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.5, 0.5)

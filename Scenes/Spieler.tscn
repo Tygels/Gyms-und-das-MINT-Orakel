@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ftt2s6kynp"]
+[gd_scene load_steps=6 format=3 uid="uid://0ftt2s6kynp"]
 
 [ext_resource type="Script" uid="uid://0s7brssacbrx" path="res://Scenes/Spieler.tres.gd" id="1_6a400"]
 [ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="1_tihay"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="2_2om84"]
+[ext_resource type="PackedScene" uid="uid://bmfrk0b30da7k" path="res://Scenes/Interaktion-demo2.tscn" id="3_ge6n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2om84"]
 size = Vector2(97, 120)
@@ -21,10 +22,16 @@ texture = ExtResource("2_2om84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1.5, 2)
+scale = Vector2(0.755, 0.755)
 shape = SubResource("RectangleShape2D_2om84")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Interaktion" parent="." instance=ExtResource("1_tihay")]
+[node name="Interaktion2" parent="CharacterBody2D" instance=ExtResource("3_ge6n2")]
+visible = false
+position = Vector2(-576, -324)
+scale = Vector2(0.6, 0.6)
+
+[node name="Interaktion" parent="CharacterBody2D" instance=ExtResource("1_tihay")]
 visible = false
 position = Vector2(-576, -324)
