@@ -11,6 +11,7 @@
 [node name="Node2D" parent="." instance=ExtResource("1_b2bpf")]
 position = Vector2(229, 6)
 scale = Vector2(0.965, 0.965)
+metadata/_edit_lock_ = true
 
 [node name="LehrerSpawner" type="Node" parent="."]
 
@@ -18,10 +19,26 @@ scale = Vector2(0.965, 0.965)
 position = Vector2(9.999999, -329.99997)
 scale = Vector2(0.485, 0.485)
 
+[node name="Label" type="Label" parent="Lehrer"]
+offset_left = -226.80414
+offset_top = 164.94843
+offset_right = -9.804138
+offset_bottom = 210.94843
+theme_override_font_sizes/font_size = 33
+text = "Mathe Lehrer"
+
 [node name="Lehrer2" parent="." instance=ExtResource("4_kldst")]
-position = Vector2(514, -324)
+position = Vector2(514, -330)
 scale = Vector2(0.485, 0.485)
 script = ExtResource("4_b2bpf")
+
+[node name="Label2" type="Label" parent="Lehrer2"]
+offset_left = -235.05151
+offset_top = 164.94849
+offset_right = 8.948486
+offset_bottom = 210.94849
+theme_override_font_sizes/font_size = 33
+text = "Englisch Lehrer"
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
 position = Vector2(228, 1)
