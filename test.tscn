@@ -13,7 +13,10 @@ script = ExtResource("1_37kl0")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextEdit" type="TextEdit" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 11.85
+anchor_bottom = 3.6
 offset_right = 526.0
 offset_bottom = 118.0
 editable = false
@@ -22,10 +25,10 @@ metadata/_edit_use_anchors_ = true
 [node name="LineEdit" type="LineEdit" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 10.25
-anchor_top = 3.9
-anchor_right = 10.25
-anchor_bottom = 3.9
+anchor_left = 12.175
+anchor_top = 6.825
+anchor_right = 12.175
+anchor_bottom = 6.825
 offset_left = -336.0
 offset_top = 7.0
 offset_right = -115.0
@@ -33,7 +36,12 @@ offset_bottom = 58.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.675
+anchor_top = 3.55
+anchor_right = 4.675
+anchor_bottom = 3.575
 offset_left = 411.0
 offset_top = 163.0
 offset_right = 479.0

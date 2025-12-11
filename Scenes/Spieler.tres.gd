@@ -6,10 +6,11 @@ var speed = 200.0  # speed in pixels/sec
 signal interacted(teacher_id)
 var current_teacher = null
 @onready var spawner = $"../LehrerSpawner"
+var interactionSzene: PackedScene = preload("res://Scenes/Interaktion.tscn")
+var cInteractionSzene
 
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
-
 
 
 func _physics_process(_delta):
@@ -41,10 +42,23 @@ func _on_lehrer_interacted(teacher_id: Variant) -> void:
 		if npc.teacher_id == teacher_id:
 			current_teacher = npc
 			break
-	Interaktion.visible = true
+	interaction(teacher_id)
+
+#initialisiert die Interation
+func interaction(teacher_id: Variant) -> void: 
+	cInteractionSzene = interactionSzene.instantiate()
+	
+	cInteractionSzene.teacher_id = teacher_id
+	cInteractionSzene.connect("exit_button_pressed", _on_interaktion_exit_button_pressed)
+	
+	add_child(cInteractionSzene)
+	
 
 func _on_interaktion_exit_button_pressed() -> void:
-	Interaktion.visible = false
+	print("Signal arrived")
+	if cInteractionSzene:
+		cInteractionSzene.remove_child(cInteractionSzene)
+		cInteractionSzene = null
 	
 	if current_teacher:
 		current_teacher.show()

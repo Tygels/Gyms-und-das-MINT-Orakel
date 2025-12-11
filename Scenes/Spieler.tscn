@@ -25,8 +25,6 @@ shape = SubResource("RectangleShape2D_2om84")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Interaktion" parent="CharacterBody2D" instance=ExtResource("1_tihay")]
+[node name="Interaktion" parent="." instance=ExtResource("1_tihay")]
 visible = false
 position = Vector2(-576, -324)
-
-[connection signal="exit_button_pressed" from="CharacterBody2D/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]

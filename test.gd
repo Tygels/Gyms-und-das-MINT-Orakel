@@ -34,7 +34,7 @@ func _on_ai_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
 		var json = JSON.parse_string(body.get_string_from_utf8())
 		var ai_reply = json["choices"][0]["message"]["content"]
-		_add_message_to_chat("ai:", ai_reply)
+		_add_message_to_chat("Ki", ai_reply)
 		
 	else:
 		_add_message_to_chat("Server Error: ", str(response_code)) 

@@ -6,6 +6,7 @@ extends Node2D
 @onready var chatUI = $ChatUI
 @onready var backButton = $ChatUI/BackButton
 signal exit_button_pressed
+var teacher_id
 
 func _ready():
 	# Connect signals
@@ -19,7 +20,7 @@ func _on_startButton_pressed():
 func _on_exitButton_pressed():
 	
 	emit_signal("exit_button_pressed")
-	
+	print("signal sent")
 
 func _on_backButton_pressed():
 	mainButtons.visible = !mainButtons.visible

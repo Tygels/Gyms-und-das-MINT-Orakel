@@ -8,6 +8,7 @@ signal interacted(teacher_id)
 var is_active := true
 
 
+
 func _ready():
 	InteractHint.visible = false
 	Lehrer.body_entered.connect(_on_Area2D_body_entered)
