@@ -37,7 +37,7 @@ func ask_ai(user_question: String) -> void:
 	var body := JSON.stringify({
 		"model": "llama3.2",
 		"messages": [
-			{"role": "system", "content": "Du bist ein Mathe Lehrer der nur Mathe Fragen beantwortet"},
+			{"role": "system", "content": "Du bist ein Mathe Lehrer der nur Fragen aus dem Fach Mathe beantwortet, die Antworten sollten möglichst kurz gehalten werden"},
 			{"role": "user", "content": user_question}
 		],
 		"stream": false
