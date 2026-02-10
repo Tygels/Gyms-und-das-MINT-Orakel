@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
 [ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
 [ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
-[ext_resource type="Script" uid="uid://bvvb6qrl2rekp" path="res://AIChat-test.gd" id="6_34uh1"]
+[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://test.gd" id="5_835lw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iqaki"]
 
@@ -68,11 +68,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Control" type="Control" parent="ChatUI"]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_34uh1")
+script = ExtResource("5_835lw")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextEdit" type="TextEdit" parent="ChatUI/Control"]
