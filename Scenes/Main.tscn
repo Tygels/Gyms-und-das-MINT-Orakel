@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2w50yfrvwg6"]
+
+[ext_resource type="Script" uid="uid://cwgg7pta1l0fm" path="res://Scenes/Main.gd" id="1_r150o"]
+
+[sub_resource type="GDScript" id="GDScript_r150o"]
+script/source = "extends Node
+
+func _ready() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/Login/Login.tscn\")
+"
+
+[node name="Main" type="Node"]
+script = SubResource("GDScript_r150o")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_r150o")

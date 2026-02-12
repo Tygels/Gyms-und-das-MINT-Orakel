@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjjd8r17lh68x"]
+
+[ext_resource type="Script" uid="uid://7y4tad7udd2u" path="res://Scenes/Login/Login.gd" id="1_o0nan"]
+[ext_resource type="Script" uid="uid://cw32mnhnf1054" path="res://Scenes/Login/Background.gd" id="2_i06uo"]
+[ext_resource type="Script" uid="uid://bnw1el2cc2wx4" path="res://Scenes/Login/LoginPanel.gd" id="3_beys5"]
+[ext_resource type="Script" uid="uid://bbvhwmr7mos84" path="res://Scenes/Login/LoginLayout.gd" id="4_14wvv"]
+[ext_resource type="Script" uid="uid://cex4hqj2ulh23" path="res://Scenes/Login/TitleLabel.gd" id="5_6tiy3"]
+[ext_resource type="Script" uid="uid://h777rfu1lt24" path="res://Scenes/Login/SubtitleLabel.gd" id="6_idarh"]
+[ext_resource type="Script" uid="uid://i6btcuif4h0p" path="res://Scenes/Login/EmailInput.gd" id="7_bebut"]
+[ext_resource type="Script" uid="uid://cx8p7uv072ho6" path="res://Scenes/Login/PasswordInput.gd" id="8_qqchy"]
+[ext_resource type="Script" uid="uid://dwfl27a2q23ne" path="res://Scenes/Login/LoginButton.gd" id="9_1w3bc"]
+[ext_resource type="Script" uid="uid://b1wr0rryc5418" path="res://Scenes/Login/InfoLabel.gd" id="10_qqchy"]
+
+[sub_resource type="GDScript" id="GDScript_14wvv"]
+script/source = "extends Control
+"
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_14wvv")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o0nan")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_i06uo")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+script = ExtResource("3_beys5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+script = ExtResource("4_14wvv")
+
+[node name="Label" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_6tiy3")
+
+[node name="Label2" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("6_idarh")
+
+[node name="EmailInput" type="LineEdit" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("7_bebut")
+
+[node name="PasswordInput" type="LineEdit" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_qqchy")
+
+[node name="LoginButton" type="Button" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_1w3bc")
+
+[node name="ErrorLabel" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_qqchy")
