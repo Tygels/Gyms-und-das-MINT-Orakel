@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjjd8r17lh68x"]
+[gd_scene load_steps=13 format=3 uid="uid://bjjd8r17lh68x"]
 
 [ext_resource type="Script" uid="uid://7y4tad7udd2u" path="res://Scenes/Login/Login.gd" id="1_o0nan"]
 [ext_resource type="Script" uid="uid://cw32mnhnf1054" path="res://Scenes/Login/Background.gd" id="2_i06uo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://i6btcuif4h0p" path="res://Scenes/Login/EmailInput.gd" id="7_bebut"]
 [ext_resource type="Script" uid="uid://cx8p7uv072ho6" path="res://Scenes/Login/PasswordInput.gd" id="8_qqchy"]
 [ext_resource type="Script" uid="uid://dwfl27a2q23ne" path="res://Scenes/Login/LoginButton.gd" id="9_1w3bc"]
+[ext_resource type="Script" uid="uid://dkch242dniwnj" path="res://Scenes/Login/Remember.gd" id="9_p0b6u"]
 [ext_resource type="Script" uid="uid://b1wr0rryc5418" path="res://Scenes/Login/InfoLabel.gd" id="10_qqchy"]
 
 [sub_resource type="GDScript" id="GDScript_14wvv"]
@@ -64,6 +65,10 @@ script = ExtResource("7_bebut")
 [node name="PasswordInput" type="LineEdit" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("8_qqchy")
+
+[node name="RememberCheckBox" type="CheckBox" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_p0b6u")
 
 [node name="LoginButton" type="Button" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
