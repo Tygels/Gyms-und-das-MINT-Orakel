@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://byhg6msh7x14s"]
+
+[ext_resource type="Texture2D" uid="uid://cu2irx1sxcmxv" path="res://test data/WhatsApp Bild 2025-12-11 um 09.41.20_6797fd89.jpg" id="1_b1t55"]
+[ext_resource type="Texture2D" uid="uid://cc66r4d5ce5ck" path="res://test data/Door01.png" id="2_cujgo"]
+
+[sub_resource type="GDScript" id="GDScript_cujgo"]
+script/source = "extends Node2D
+
+signal entered
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		emit_signal(\"entered\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cujgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijf6x"]
+size = Vector2(20, 15.900002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2yt5"]
+size = Vector2(484.49854, 161.09416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy1h"]
+size = Vector2(264.4377, 88.75382)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(1.645, 1.645)
+script = SubResource("GDScript_cujgo")
+
+[node name="WhatsAppBild20251211Um09_41_206797Fd89" type="Sprite2D" parent="."]
+position = Vector2(0, -1.9999924)
+scale = Vector2(1.655, 1.655)
+texture = ExtResource("1_b1t55")
+metadata/_edit_lock_ = true
+
+[node name="Door01" type="Sprite2D" parent="."]
+position = Vector2(522.7963, -395.74466)
+rotation = 1.5707964
+scale = Vector2(4.88222, 6.344985)
+skew = -1.0471976
+texture = ExtResource("2_cujgo")
+
+[node name="Area2D" type="Area2D" parent="Door01"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door01/Area2D"]
+shape = SubResource("RectangleShape2D_cujgo")
+
+[node name="rechter Tisch" type="StaticBody2D" parent="."]
+position = Vector2(200, 281)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rechter Tisch"]
+scale = Vector2(9.665, 50)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true
+
+[node name="Linker Tisch" type="StaticBody2D" parent="."]
+position = Vector2(-192.09726, 279.02737)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Linker Tisch"]
+scale = Vector2(9.665, 50)
+shape = SubResource("RectangleShape2D_ijf6x")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(4.2553253, -563.5258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7.598797, -39.209778)
+shape = SubResource("RectangleShape2D_k2yt5")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, -303.34348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(4.5592666, -1.8237)
+shape = SubResource("RectangleShape2D_tvy1h")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Door01/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hkja62n8eiui"]
 
-[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://test.gd" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://KI-Chat.gd" id="1_37kl0"]
 
 [node name="Node2D" type="Node2D"]
 
