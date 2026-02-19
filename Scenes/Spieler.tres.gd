@@ -4,6 +4,7 @@ var speed = 200.0  # speed in pixels/sec
 @onready var spieler = $CharacterBody2D
 @onready var Interaktion = $CharacterBody2D/Interaktion
 signal interacted(teacher_id)
+signal interact
 @export var current_teacher = null
 @export var Teacher_id = null
 @onready var spawner = $"../LehrerSpawner"
@@ -43,6 +44,7 @@ func _on_lehrer_interacted(teacher_id: Variant) -> void:
 			current_teacher = npc
 			Teacher_id = teacher_id
 			break
+	emit_signal("interact")
 	Interaktion.visible = true
 	
 	for npc in spawner.npc_list:

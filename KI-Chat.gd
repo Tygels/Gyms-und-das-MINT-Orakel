@@ -10,8 +10,8 @@ extends Control
 var log_request: HTTPRequest
 
 # URLs
-var ai_server_url := "https://unhatchable-scott-goniometrically.ngrok-free.dev/v1/chat/completions"
-var log_server_url := "https://mediocre-uncapturable-giselle.ngrok-free.dev/api/json"
+var ai_server_url := "http://85.215.207.221:11434/api/chat"
+var log_server_url := "http://85.215.207.221:5000/api/json"
 
 # Speicher für letzte Frage
 var last_user_question: String = ""
@@ -45,20 +45,14 @@ func ask_ai(user_question: String) -> void:
 	match teacher_id:
 		1:
 			prompt =  prompt_Mathe
-			print(prompt)
 		2:
 			prompt = prompt_Englisch
-			print(prompt)
 		3:
 			prompt = prompt_Physik
-			print(prompt)
-
-	print(teacher_id)
-	print(prompt)
 
 	last_user_question = user_question
 
-	var headers := ["Content-Type: application/json"]
+	var headers = ["Content-Type: application/json"]
 
 	var body := JSON.stringify({
 		"model": "llama3.2",
@@ -70,12 +64,13 @@ func ask_ai(user_question: String) -> void:
 	})
 
 	print("Sende Anfrage an KI...")
-	var error := ai_request.request(
+	var error = ai_request.request(
 		ai_server_url,
 		headers,
 		HTTPClient.METHOD_POST,
 		body
 	)
+	print(error)
 
 	if error != OK:
 		print("❌ Fehler beim Senden an die KI")
@@ -99,7 +94,7 @@ func _on_ai_request_request_completed(
 		_add_message_to_chat("System", "Ungültige KI-Antwort")
 		return
 
-	var ai_reply: String = json["choices"][0]["message"]["content"]
+	var ai_reply: String = json["message"]["content"]
 	_add_message_to_chat("KI", ai_reply)
 
 	# 🔴 Logging an zweiten Server

@@ -26,7 +26,7 @@ func _on_Area2D_body_exited(_body):
 	InteractHint.visible = false
 
 func _process(_delta):
-	if Input.is_action_pressed("Lehrer_UI_open") and InteractHint.visible == true:
+	if Input.is_action_just_released("Lehrer_UI_open") and InteractHint.visible == true:
 		emit_signal("interacted", teacher_id)
 		hide()              # NPC disappears
 		is_active = false

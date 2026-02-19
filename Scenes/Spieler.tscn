@@ -29,4 +29,5 @@ shape = SubResource("RectangleShape2D_2om84")
 visible = false
 position = Vector2(-576, -324.00003)
 
+[connection signal="interact" from="." to="CharacterBody2D/Interaktion" method="_on_spieler_interact"]
 [connection signal="exit_button_pressed" from="CharacterBody2D/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]
