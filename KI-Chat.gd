@@ -31,8 +31,6 @@ func _ready() -> void:
 
 	# Signale verbinden
 	ai_request.request_completed.connect(_on_ai_request_request_completed)
-	button.pressed.connect(_on_button_pressed)
-	lineEdit.text_submitted.connect(_on_line_edit_text_submitted)
 
 # ===============================
 # KI FRAGE SENDEN
