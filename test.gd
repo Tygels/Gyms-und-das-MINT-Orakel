@@ -6,7 +6,7 @@ extends Control
 @onready var textEdit = $TextEdit
 
 # 1. The URL from ngrok + the chat completion endpoint
-var server_url = "https://unhatchable-scott-goniometrically.ngrok-free.dev/v1/chat/completions" 
+var server_url = "http://85.215.207.221:11434/api/chat" 
 
 func ask_ai(user_question: String):
 	# 2. Prepare the headers
@@ -25,18 +25,21 @@ func ask_ai(user_question: String):
 	# 4. Send the request
 	print("Sending to AI...")
 	var error = ai_request.request(server_url, headers, HTTPClient.METHOD_POST, body)
-	
+	print("lol")
 	if error != OK:
-		print("An error occurred in the HTTP request.")
+		print(error)
 
 # 5. Handle the response
 func _on_ai_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
+		print(_result)
 		var json = JSON.parse_string(body.get_string_from_utf8())
-		var ai_reply = json["choices"][0]["message"]["content"]
+		print(json)
+		var ai_reply = json["message"]["content"]
 		_add_message_to_chat("ai:", ai_reply)
 		
 	else:
+		
 		_add_message_to_chat("Server Error: ", str(response_code)) 
 
 
