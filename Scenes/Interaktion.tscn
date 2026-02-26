@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf7dxolpk0me7"]
+[gd_scene load_steps=22 format=3 uid="uid://cf7dxolpk0me7"]
 
 [ext_resource type="Texture2D" uid="uid://dgqowxonwxcvo" path="res://test data/WhatsApp Bild 2025-12-11 um 09.42.06_d43577b8.jpg" id="2_34uh1"]
 [ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
@@ -7,6 +7,31 @@
 [ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
 [ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
 [ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://KI-Chat.gd" id="5_835lw"]
+[ext_resource type="Texture2D" uid="uid://db7j4mqca5ct2" path="res://Dateien/Ui1.png" id="8_3n7ag"]
+[ext_resource type="Texture2D" uid="uid://bnfrg8bk85xwp" path="res://Dateien/Ui2.png" id="9_dnrov"]
+[ext_resource type="Texture2D" uid="uid://cq21a3qquxree" path="res://Dateien/Ui3.png" id="10_dnrov"]
+[ext_resource type="Texture2D" uid="uid://6op1r5to601r" path="res://Dateien/Ui3h.png" id="11_7qyxr"]
+[ext_resource type="Texture2D" uid="uid://dimuslp87toea" path="res://Dateien/Ui3l.png" id="12_yv41i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qyxr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yv41i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n7ag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnrov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4np86"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv41i"]
+texture = ExtResource("11_7qyxr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4np86"]
+texture = ExtResource("12_yv41i")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4ucm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ne30"]
 
 [node name="Interaktion" type="Node2D"]
 scale = Vector2(0.599996, 0.59998)
@@ -29,6 +54,7 @@ scale = Vector2(1.615, 1.615)
 texture = ExtResource("3_3n7ag")
 
 [node name="Textbox" type="TextureRect" parent="."]
+visible = false
 offset_left = 102.0
 offset_top = 620.0
 offset_right = 1830.0
@@ -46,6 +72,7 @@ offset_right = 1086.0
 offset_bottom = 451.0
 
 [node name="MainButtons" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1086.0
@@ -76,7 +103,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Node" type="Node" parent="MainButtons"]
 
 [node name="ChatUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -89,46 +115,70 @@ offset_bottom = 40.0
 script = ExtResource("5_835lw")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextEdit" type="TextEdit" parent="ChatUI/Control"]
-layout_mode = 1
+[node name="Ui1" type="Sprite2D" parent="ChatUI/Control"]
+position = Vector2(965.00653, 805.0268)
+scale = Vector2(0.964577, 1.0364493)
+texture = ExtResource("8_3n7ag")
+
+[node name="TextEdit" type="TextEdit" parent="ChatUI/Control/Ui1"]
 anchors_preset = -1
-anchor_left = 2.55
-anchor_top = 15.5
-anchor_right = 32.6
-anchor_bottom = 21.1
-offset_right = 526.0
-offset_bottom = 118.0
+anchor_left = 2.6093345
+anchor_top = 15.561422
+anchor_right = 3.2704701
+anchor_bottom = 15.983143
+offset_left = -5546.005
+offset_top = -5690.509
+offset_right = -5020.004
+offset_bottom = -5572.509
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7qyxr")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yv41i")
 editable = false
+wrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit" type="LineEdit" parent="ChatUI/Control"]
-layout_mode = 1
+[node name="Ui2" type="Sprite2D" parent="ChatUI/Control"]
+position = Vector2(821.67224, 1034.5353)
+scale = Vector2(0.9862564, 1.0253786)
+texture = ExtResource("9_dnrov")
+
+[node name="LineEdit" type="LineEdit" parent="ChatUI/Control/Ui2"]
 anchors_preset = -1
-anchor_left = 10.95
-anchor_top = 24.275
-anchor_right = 40.625
-anchor_bottom = 24.85
-offset_left = -336.0
-offset_top = 7.0
-offset_right = -115.0
-offset_bottom = 58.0
+anchor_left = 10.939532
+anchor_top = 24.351446
+anchor_right = 11.774949
+anchor_bottom = 24.739157
+offset_left = -16771.654
+offset_top = -2283.6675
+offset_right = -16550.652
+offset_bottom = -2232.6675
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3n7ag")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dnrov")
+placeholder_text = "Schreibe eine Nachricht..."
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="ChatUI/Control"]
-layout_mode = 1
+[node name="Ui3" type="Sprite2D" parent="ChatUI/Control"]
+position = Vector2(1691.6781, 1035.0344)
+scale = Vector2(0.7429503, 0.75002337)
+texture = ExtResource("10_dnrov")
+
+[node name="Button" type="Button" parent="ChatUI/Control/Ui3"]
 anchors_preset = -1
-anchor_left = 27.475
-anchor_top = 20.675
-anchor_right = 33.775
-anchor_bottom = 21.475
-offset_left = 411.0
-offset_top = 163.0
-offset_right = 479.0
-offset_bottom = 193.0
-text = "senden"
+anchor_left = 28.150305
+anchor_top = 20.650826
+anchor_right = 28.975708
+anchor_bottom = 21.350855
+offset_left = -10830.816
+offset_top = -2115.084
+offset_right = -10762.816
+offset_bottom = -2085.084
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4np86")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yv41i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4np86")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s4ucm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ne30")
 metadata/_edit_use_anchors_ = true
 
-[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI/Control/Button"]
+[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI/Control/Ui3/Button"]
 
 [node name="BackButton" type="Button" parent="ChatUI"]
 layout_mode = 0
@@ -138,7 +188,7 @@ offset_right = 214.0
 offset_bottom = 608.0
 text = "Back"
 
-[connection signal="editing_toggled" from="ChatUI/Control/LineEdit" to="ChatUI/Control" method="_on_line_edit_editing_toggled"]
-[connection signal="text_submitted" from="ChatUI/Control/LineEdit" to="ChatUI/Control" method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="ChatUI/Control/Button" to="ChatUI/Control" method="_on_button_pressed"]
-[connection signal="request_completed" from="ChatUI/Control/Button/HTTPRequest" to="ChatUI/Control" method="_on_http_request_request_completed"]
+[connection signal="editing_toggled" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_editing_toggled"]
+[connection signal="text_submitted" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="ChatUI/Control/Ui3/Button" to="ChatUI/Control" method="_on_button_pressed"]
+[connection signal="request_completed" from="ChatUI/Control/Ui3/Button/HTTPRequest" to="ChatUI/Control" method="_on_http_request_request_completed"]
