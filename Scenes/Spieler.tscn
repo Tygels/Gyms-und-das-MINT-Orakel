@@ -10,24 +10,24 @@ size = Vector2(97, 120)
 [node name="Spieler" type="Node2D"]
 script = ExtResource("1_6a400")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Spieler" type="CharacterBody2D" parent="."]
 light_mask = 1023
 visibility_layer = 1023
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Spieler"]
 position = Vector2(4, 4.0625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2om84")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spieler"]
 position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_2om84")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Spieler"]
 
-[node name="Interaktion" parent="CharacterBody2D" instance=ExtResource("1_tihay")]
+[node name="Interaktion" parent="Spieler" instance=ExtResource("1_tihay")]
 visible = false
 position = Vector2(-576, -324.00003)
 
-[connection signal="interact" from="." to="CharacterBody2D/Interaktion" method="_on_spieler_interact"]
-[connection signal="exit_button_pressed" from="CharacterBody2D/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]
+[connection signal="interact" from="." to="Spieler/Interaktion" method="_on_spieler_interact"]
+[connection signal="exit_button_pressed" from="Spieler/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]

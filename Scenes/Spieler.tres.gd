@@ -1,8 +1,8 @@
 extends Node2D
 
-var speed = 200.0  # speed in pixels/sec
-@onready var spieler = $CharacterBody2D
-@onready var Interaktion = $CharacterBody2D/Interaktion
+var speed = 300.0  # speed in pixels/sec
+@onready var spieler = $Spieler
+@onready var Interaktion = $Spieler/Interaktion
 signal interacted(teacher_id)
 signal interact
 @export var current_teacher = null

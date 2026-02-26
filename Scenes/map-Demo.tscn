@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byhg6msh7x14s"]
+[gd_scene load_steps=9 format=3 uid="uid://byhg6msh7x14s"]
 
 [ext_resource type="Texture2D" uid="uid://cu2irx1sxcmxv" path="res://test data/WhatsApp Bild 2025-12-11 um 09.41.20_6797fd89.jpg" id="1_b1t55"]
 [ext_resource type="Texture2D" uid="uid://cc66r4d5ce5ck" path="res://test data/Door01.png" id="2_cujgo"]
@@ -9,7 +9,7 @@ script/source = "extends Node2D
 signal entered
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body.name == \"Spieler\":
 		emit_signal(\"entered\")
 "
 
@@ -23,6 +23,8 @@ size = Vector2(484.49854, 161.09416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvy1h"]
 size = Vector2(264.4377, 88.75382)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cujgo"]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(1.645, 1.645)
@@ -76,6 +78,37 @@ position = Vector2(0, -303.34348)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(4.5592666, -1.8237)
 shape = SubResource("RectangleShape2D_tvy1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0.60790443, 773.2523)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_cujgo")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(513.6778, -74.77203)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_cujgo")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1.2157898, -756.231)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_cujgo")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(-505.7751, -59.574467)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_cujgo")
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Door01/Area2D" to="." method="_on_area_2d_body_entered"]

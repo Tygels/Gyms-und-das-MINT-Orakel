@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://chcy38ibkumm0"]
+[gd_scene load_steps=6 format=3 uid="uid://chcy38ibkumm0"]
 
 [ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/TestRaum-A207-Teleport.gd" id="1_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://byhg6msh7x14s" path="res://Scenes/map-Demo.tscn" id="1_kldst"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_b2bpf"]
-[ext_resource type="PackedScene" uid="uid://b54jfujwpglh2" path="res://Scenes/Lehrer - NPC.tscn" id="3_7lihs"]
 [ext_resource type="Script" uid="uid://cbr821g83nb7a" path="res://Scenes/LehrerSpawner.gd" id="4_kldst"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="6_7lihs"]
 
@@ -15,11 +14,6 @@ scale = Vector2(1, 1)
 
 [node name="LehrerSpawner" type="Node" parent="."]
 script = ExtResource("4_kldst")
-
-[node name="Lehrer" parent="." instance=ExtResource("3_7lihs")]
-visible = false
-position = Vector2(285, -455)
-scale = Vector2(0.57, 0.57)
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
 position = Vector2(399, -313)

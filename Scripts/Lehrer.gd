@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var InteractHint = $InteractHint
-@onready var Lehrer = $Area2D
+@onready var InteractHint = $CharacterBody2D/InteractHint
+@onready var Lehrer = $CharacterBody2D/Area2D
 var teacher_id
 var portrait
 signal interacted(teacher_id)
@@ -13,12 +13,12 @@ func _ready():
 	Lehrer.body_entered.connect(_on_Area2D_body_entered)
 	Lehrer.body_exited.connect(_on_Area2D_body_exited)
 	if portrait != null:
-		$Portrait.texture = load(portrait)
+		$CharacterBody2D/Portrait.texture = load(portrait)
 
 
 
 func _on_Area2D_body_entered(_body):
-	if _body.name == "CharacterBody2D":
+	if _body.name == "Spieler":
 		InteractHint.visible = true
 
 
