@@ -11,7 +11,7 @@ var current_direction: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 
 
-func _ready():
+func _ready():	
 	randomize()
 	_choose_new_state()
 

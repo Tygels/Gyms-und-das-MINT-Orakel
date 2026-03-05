@@ -14,6 +14,8 @@ size = Vector2(107, 158)
 script = ExtResource("1_hh1sx")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+platform_floor_layers = 1
+platform_wall_layers = 1
 script = ExtResource("2_hh1sx")
 
 [node name="Portrait" type="Sprite2D" parent="CharacterBody2D"]
@@ -32,8 +34,6 @@ theme_override_font_sizes/font_size = 12
 text = "\"E\" drucken um zu Interagieren"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(-5.5, -1.5)
 shape = SubResource("RectangleShape2D_hh1sx")
 disabled = true
