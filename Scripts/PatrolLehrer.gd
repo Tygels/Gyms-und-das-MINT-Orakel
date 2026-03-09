@@ -13,7 +13,7 @@ var is_moving: bool = false
 @onready var interaction_script = get_parent()
 
 
-func _ready():
+func _ready():	
 	randomize()
 	_choose_new_state()
 
