@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ftt2s6kynp"]
 
-[ext_resource type="Script" uid="uid://0s7brssacbrx" path="res://Scripts/Spieler.tres.gd" id="1_6a400"]
+[ext_resource type="Script" path="res://Scripts/Spieler.tres.gd" id="1_2om84"]
 [ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="1_tihay"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="2_2om84"]
 
@@ -9,7 +9,7 @@ size = Vector2(97, 120)
 
 [node name="Spieler" type="Node2D"]
 visibility_layer = 2
-script = ExtResource("1_6a400")
+script = ExtResource("1_2om84")
 
 [node name="Spieler" type="CharacterBody2D" parent="."]
 light_mask = 1023
