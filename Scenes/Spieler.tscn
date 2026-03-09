@@ -8,11 +8,13 @@
 size = Vector2(97, 120)
 
 [node name="Spieler" type="Node2D"]
+visibility_layer = 2
 script = ExtResource("1_6a400")
 
 [node name="Spieler" type="CharacterBody2D" parent="."]
 light_mask = 1023
 visibility_layer = 1023
+collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Spieler"]
 position = Vector2(4, 4.0625)

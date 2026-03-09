@@ -44,6 +44,7 @@ skew = -1.0471976
 texture = ExtResource("2_cujgo")
 
 [node name="Area2D" type="Area2D" parent="Door01"]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door01/Area2D"]
 shape = SubResource("RectangleShape2D_cujgo")

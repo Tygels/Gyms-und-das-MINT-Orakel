@@ -6,6 +6,7 @@ var teacher_id
 var portrait
 signal interacted(teacher_id)
 var is_active := true
+var can_move: bool = true 
 
 
 func _ready():
@@ -30,3 +31,7 @@ func _process(_delta):
 		emit_signal("interacted", teacher_id)
 		hide()              # NPC disappears
 		is_active = false
+		can_move = false
+
+func resume_movement():
+	can_move = true

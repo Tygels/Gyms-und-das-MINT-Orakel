@@ -60,3 +60,4 @@ func _on_interaktion_exit_button_pressed() -> void:
 		Teacher_id = null
 	for npc in spawner.npc_list:
 		npc.show()
+		npc.resume_movement()

@@ -1,48 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://b54jfujwpglh2"]
+[gd_scene load_steps=6 format=3 uid="uid://c2mhahvbuym54"]
 
 [ext_resource type="Script" uid="uid://532ntrbd5pc3" path="res://Scripts/Lehrer.gd" id="1_hh1sx"]
 [ext_resource type="Script" uid="uid://cjndj7dr21vsv" path="res://Scripts/PatrolLehrer.gd" id="2_hh1sx"]
-[ext_resource type="Texture2D" uid="uid://bc7r6pfye7vf8" path="res://test data/Dr._Wagener_Icon-default-removebg-preview.png" id="3_hh1sx"]
+[ext_resource type="Texture2D" uid="uid://bs5jnivfo66tv" path="res://Dateien/Gropper.png" id="3_hh1sx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh1sx"]
-size = Vector2(75, 131)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qih2i"]
+size = Vector2(38.25, 72.94116)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ye6k"]
-size = Vector2(107, 158)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pks0"]
+size = Vector2(51, 124)
 
-[node name="Lehrer" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_hh1sx")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(1.7, 1.7)
+collision_layer = 4
 script = ExtResource("2_hh1sx")
 
 [node name="Portrait" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.1, 0.09)
 texture = ExtResource("3_hh1sx")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 15.882355)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_qih2i")
+
 [node name="InteractHint" type="Label" parent="CharacterBody2D"]
-visible = false
-offset_left = -207.0
-offset_top = -89.0
-offset_right = -25.0
-offset_bottom = -72.0
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 82.0
+offset_bottom = -43.0
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "\"E\" drucken um zu Interagieren"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-5.5, -1.5)
-shape = SubResource("RectangleShape2D_hh1sx")
-disabled = true
-debug_color = Color(0.31385443, 0.4999665, 0.9799867, 0.41960785)
-
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-physics_interpolation_mode = 2
-scale = Vector2(0.5, 0.5)
-disable_mode = 2
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-shape = SubResource("RectangleShape2D_1ye6k")
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_2pks0")
+debug_color = Color(1, 1, 1, 0.41960785)

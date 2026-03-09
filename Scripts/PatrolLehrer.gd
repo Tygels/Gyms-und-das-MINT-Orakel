@@ -10,14 +10,18 @@ var move_timer: float = 0.0
 var current_direction: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 
+@onready var interaction_script = get_parent()
+
 
 func _ready():
 	randomize()
 	_choose_new_state()
 
-
 func _physics_process(delta):
-
+	if not interaction_script.can_move:
+		velocity = Vector2.ZERO
+		return  # Skip movement logic while paused
+	
 	move_timer -= delta
 	
 	if move_timer <= 0:
@@ -29,10 +33,6 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 
 	move_and_slide()
-
-	# 🔥 WALL DETECTION
-	if is_moving and is_on_wall():
-		_choose_new_direction()
 
 
 func _choose_new_state():
