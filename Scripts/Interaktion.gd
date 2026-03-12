@@ -1,10 +1,7 @@
 extends Node2D
 
-@onready var startButton = $MainButtons/StartButton
-@onready var exitButton = $MainButtons/ExitButton
-@onready var mainButtons = $MainButtons
 @onready var chatUI = $ChatUI
-@onready var backButton = $ChatUI/BackButton
+@onready var backButton = $ChatUI/Backbutton/BackButton
 signal exit_button_pressed
 @onready var Spieler = get_node("../..")
 @onready var Teacher_id = Spieler.Teacher_id
@@ -12,8 +9,7 @@ signal exit_button_pressed
 
 func _ready():
 	# Connect signals
-	startButton.pressed.connect(_on_startButton_pressed)
-	exitButton.pressed.connect(_on_exitButton_pressed)
+
 	backButton.pressed.connect(_on_backButton_pressed)
 	
 	_apply_chat_font()
@@ -27,7 +23,7 @@ func _apply_chat_font():
 	text_edit.add_theme_font_override("font", pixel_font)
 	text_edit.add_theme_font_size_override("font_size", 38)
 	
-	var text_color = Color("000000ff")
+	var text_color = Color("ffffffff")
 	text_edit.add_theme_color_override("font_readonly_color", text_color)
 	text_edit.add_theme_color_override("font_outline_color", text_color)
 	text_edit.add_theme_constant_override("outline_size", 2)
@@ -41,19 +37,9 @@ func _apply_chat_font():
 	
 	
 
-# Functions for each button
-func _on_startButton_pressed():
-	mainButtons.visible = !mainButtons.visible
-	chatUI.visible = !chatUI.visible
-func _on_exitButton_pressed():
-	
-	emit_signal("exit_button_pressed")
-	
-
 func _on_backButton_pressed():
-	mainButtons.visible = !mainButtons.visible
-	chatUI.visible = !chatUI.visible
-	$ChatUI/Control/Ui1/TextEdit.set_text("")
+
+	emit_signal("exit_button_pressed")
 
 
 func _on_spieler_interact() -> void:

@@ -16,13 +16,13 @@ scale = Vector2(1, 1)
 [node name="LehrerSpawner" type="Node" parent="."]
 script = ExtResource("4_kldst")
 
+[node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
+position = Vector2(399, -313)
+
 [node name="Lehrer" parent="." instance=ExtResource("3_7lihs")]
 visible = false
 position = Vector2(285, -455)
 scale = Vector2(0.57, 0.57)
-
-[node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
-position = Vector2(399, -313)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("6_7lihs")]
 visible = false
