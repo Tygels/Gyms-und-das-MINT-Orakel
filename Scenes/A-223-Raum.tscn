@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjuahv4rkar4e"]
+[gd_scene load_steps=17 format=3 uid="uid://bjuahv4rkar4e"]
 
 [ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_1hrn7"]
 [ext_resource type="Texture2D" uid="uid://bliodhhmb5qgm" path="res://Dateien/Klassenzimmer A223 - rote Tische.png" id="1_yf22a"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_8utwl"]
+[ext_resource type="Script" uid="uid://3d0sotepmkmj" path="res://Scripts/LehrerSpawnerA223.gd" id="4_a6cfh"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_wpqs6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf22a"]
@@ -41,12 +42,14 @@ size = Vector2(28.212631, 135)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1hrn7")
+metadata/_edit_lock_ = true
 
 [node name="KlassenzimmerA223RoteTische" type="Sprite2D" parent="."]
 texture = ExtResource("1_yf22a")
 metadata/_edit_lock_ = true
 
 [node name="Collisions" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Worldborder" type="StaticBody2D" parent="Collisions"]
 position = Vector2(0, 785)
@@ -119,6 +122,7 @@ metadata/_edit_lock_ = true
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(289.63635, -477.909)
 collision_mask = 4
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(7.3636475, 11.908997)
@@ -128,16 +132,21 @@ metadata/_edit_lock_ = true
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(-502.21262, -301.85352)
 collision_mask = 4
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(4.1062927, -11.646484)
 shape = SubResource("RectangleShape2D_3xo66")
 metadata/_edit_lock_ = true
 
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("4_a6cfh")
+
 [node name="Spieler" parent="." instance=ExtResource("2_8utwl")]
 position = Vector2(194, -361)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_wpqs6")]
 position = Vector2(289.63635, -477.909)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

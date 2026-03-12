@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ben2wuywikowe"]
+[gd_scene load_steps=15 format=3 uid="uid://ben2wuywikowe"]
 
 [ext_resource type="Texture2D" uid="uid://c8f0jtli1sxua" path="res://Dateien/Klassenzimmer A205.png" id="1_kr21c"]
 [ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_y34t3"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_fwpoi"]
+[ext_resource type="Script" uid="uid://cbr821g83nb7a" path="res://Scripts/LehrerSpawnerA205.gd" id="3_qnuns"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_giayf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kr21c"]
@@ -174,10 +175,14 @@ collision_mask = 4
 position = Vector2(6, -12.0000305)
 shape = SubResource("RectangleShape2D_6jun3")
 
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("3_qnuns")
+
 [node name="Spieler" parent="." instance=ExtResource("2_fwpoi")]
-position = Vector2(-391, -324)
+position = Vector2(-61, -320)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_giayf")]
 position = Vector2(-391, -444)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

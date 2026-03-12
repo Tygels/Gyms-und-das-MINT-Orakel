@@ -15,6 +15,7 @@ script = ExtResource("1_hh1sx")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(1.7, 1.7)
 collision_layer = 4
+platform_floor_layers = 1
 script = ExtResource("2_hh1sx")
 
 [node name="Portrait" type="Sprite2D" parent="CharacterBody2D"]

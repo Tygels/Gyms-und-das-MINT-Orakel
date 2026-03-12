@@ -43,9 +43,6 @@ size = Vector2(146, 58)
 script = ExtResource("1_71dqj")
 metadata/_edit_lock_ = true
 
-[node name="LehrerSpawner" type="Node" parent="."]
-script = ExtResource("2_l6es5")
-
 [node name="Hintergrund" type="Sprite2D" parent="."]
 texture = ExtResource("1_hktdb")
 metadata/_edit_lock_ = true
@@ -195,6 +192,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(266, -430)
 shape = SubResource("RectangleShape2D_hhyb7")
+
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("2_l6es5")
 
 [node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
 position = Vector2(275, -307)

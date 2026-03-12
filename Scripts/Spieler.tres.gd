@@ -12,8 +12,6 @@ signal interact
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
 
-
-
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO
 	# Bewegungen

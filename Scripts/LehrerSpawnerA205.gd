@@ -6,7 +6,7 @@ var npc_list: Array = []
 
 func _ready() -> void:
 	var npcData = [
-		{"id": 1, "position": Vector2(240,-330), "portrait": "res://Dateien/Klinkhammer.png"},
+		{"id": 1, "position": Vector2(-60,-310), "portrait": "res://Dateien/Klinkhammer.png"},
 		{"id": 2, "position": Vector2(-260,-270), "portrait": "res://Dateien/Bachhausen2.png"},
 		{"id": 3, "position": Vector2(0,0), "portrait": "res://Dateien/Achenbach.png"}
 	]

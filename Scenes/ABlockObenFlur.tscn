@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cte02454ehi3x"]
+[gd_scene load_steps=12 format=3 uid="uid://cte02454ehi3x"]
 
 [ext_resource type="Texture2D" uid="uid://l14kstfbm3x0" path="res://Dateien/A-Block_A207-A205.png" id="1_33ie2"]
 [ext_resource type="Script" uid="uid://cehu8efpsgbx7" path="res://Scripts/ABlockOben-A207.gd" id="1_q7fxt"]
-[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="3_wfx3g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33ie2"]
 normal = Vector2(1, 0)
@@ -120,8 +119,6 @@ collision_mask = 4
 position = Vector2(-1, 551)
 shape = SubResource("RectangleShape2D_qso35")
 metadata/_edit_lock_ = true
-
-[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("3_wfx3g")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_Teleport_A_232"]
 [connection signal="body_entered" from="Area2D2" to="." method="_Teleport_A_223"]
