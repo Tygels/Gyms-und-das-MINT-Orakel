@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://b023vvit8ao13"]
+[gd_scene load_steps=16 format=3 uid="uid://d4mtjn8oj8c4g"]
 
-[ext_resource type="Script" uid="uid://ejnjx2u42b2f" path="res://Scripts/A207-testRaum-Teleport.gd" id="1_71dqj"]
-[ext_resource type="Texture2D" uid="uid://cm6ea8r3ktrbv" path="res://Dateien/ChatGPT_Image_17._Feb._2026_17_24_13.png" id="1_hktdb"]
-[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_71dqj"]
-[ext_resource type="Script" uid="uid://dequnw4mb7s1y" path="res://Scripts/LehrerSpawnerA207.gd" id="2_l6es5"]
-[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_jfq0s"]
+[ext_resource type="Script" uid="uid://ejnjx2u42b2f" path="res://Scripts/A207-testRaum-Teleport.gd" id="1_yuqfp"]
+[ext_resource type="Script" uid="uid://dequnw4mb7s1y" path="res://Scripts/LehrerSpawnerA207.gd" id="2_y68cj"]
+[ext_resource type="Texture2D" uid="uid://b1rhksx41eu7t" path="res://Klassenzimmer A232.png" id="3_yuqfp"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="4_rqooi"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="5_l1mu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncaqk"]
-size = Vector2(142, 46.25)
+size = Vector2(158.5, 63.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfq0s"]
 size = Vector2(225, 19.5)
@@ -40,106 +40,111 @@ distance = -510.0
 size = Vector2(146, 58)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_71dqj")
+script = ExtResource("1_yuqfp")
 metadata/_edit_lock_ = true
 
 [node name="LehrerSpawner" type="Node" parent="."]
-script = ExtResource("2_l6es5")
+script = ExtResource("2_y68cj")
 
 [node name="Hintergrund" type="Sprite2D" parent="."]
-texture = ExtResource("1_hktdb")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_yuqfp")
 metadata/_edit_lock_ = true
 
 [node name="Kollision" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-36, -102)
+position = Vector2(-204, -175)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D"]
+position = Vector2(-8.5, -0.75)
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, 87)
+position = Vector2(203, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-294, 95)
+position = Vector2(-210, 156)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D3"]
-position = Vector2(-1, -9.125)
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-34, 87)
+position = Vector2(202, 158)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D4"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, -101)
+position = Vector2(234, -215)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D5"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-295, -103)
+position = Vector2(-212, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D6"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-38, 273)
+position = Vector2(390, -166)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D7"]
+position = Vector2(1.25, 0.625)
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, 466)
+position = Vector2(540, 684)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D8"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-294, 467)
+position = Vector2(115, 683)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D9"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-36, 467)
+position = Vector2(328, 685)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D10"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Kollision"]
-position = Vector2(227, 276)
+position = Vector2(325, 31)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D11"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-294, 276)
+position = Vector2(-326, -128)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D12"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-72, -279)
+position = Vector2(-2, -404)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D13"]
 position = Vector2(0, -27.75)
@@ -147,7 +152,7 @@ shape = SubResource("RectangleShape2D_jfq0s")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Kollision"]
-position = Vector2(444, -415)
+position = Vector2(706, -468)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D14"]
 position = Vector2(2, -22)
@@ -155,14 +160,15 @@ shape = SubResource("RectangleShape2D_l6es5")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="Kollision"]
-position = Vector2(0, -613)
+position = Vector2(-78, -694)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D15"]
 shape = SubResource("RectangleShape2D_wus70")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Kollision"]
-position = Vector2(468, -94)
+position = Vector2(-145, 700)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D16"]
 position = Vector2(-3, -3.5)
@@ -170,7 +176,8 @@ shape = SubResource("RectangleShape2D_pvjew")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Kollision"]
-position = Vector2(468, 335)
+position = Vector2(-435, 706)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D17"]
 position = Vector2(-4.5, 28)
@@ -193,13 +200,13 @@ shape = SubResource("WorldBoundaryShape2D_ncaqk")
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(266, -430)
+position = Vector2(514, -478)
 shape = SubResource("RectangleShape2D_hhyb7")
 
-[node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
-position = Vector2(275, -295)
+[node name="Spieler" parent="." instance=ExtResource("4_rqooi")]
+position = Vector2(333, -311)
 
-[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_jfq0s")]
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("5_l1mu7")]
 visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
