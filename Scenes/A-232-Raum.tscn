@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_t57i8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgexp"]
-size = Vector2(200, 52)
+size = Vector2(200, 44)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yk8p0"]
 normal = Vector2(-1, 0)
@@ -24,7 +24,7 @@ distance = 5.494756
 distance = 3.885376
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhylv"]
-size = Vector2(230, 31.000008)
+size = Vector2(222, 25.494198)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qu5n"]
 size = Vector2(63, 384)
@@ -49,7 +49,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-7.492157, -307.35065)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(2.492157, 6.350647)
+position = Vector2(2.492157, 2.350647)
 shape = SubResource("RectangleShape2D_rgexp")
 metadata/_edit_lock_ = true
 
@@ -84,7 +84,7 @@ shape = SubResource("WorldBoundaryShape2D_he1wt")
 position = Vector2(-135.18661, -160.98839)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
-position = Vector2(-110.813385, 11.488388)
+position = Vector2(-107.813385, 12.735489)
 shape = SubResource("RectangleShape2D_mhylv")
 metadata/_edit_lock_ = true
 
@@ -116,7 +116,7 @@ metadata/_edit_lock_ = true
 position = Vector2(346, -160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D6"]
-position = Vector2(-110.813385, 11.488388)
+position = Vector2(-110.90669, 12.994202)
 shape = SubResource("RectangleShape2D_mhylv")
 metadata/_edit_lock_ = true
 
@@ -164,6 +164,6 @@ metadata/_edit_lock_ = true
 position = Vector2(414, -301)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_t57i8")]
-position = Vector2(400.53104, -403.64606)
+position = Vector2(435, -382)
 
 [connection signal="body_entered" from="Tür" to="." method="_on_area_2d_body_entered"]
