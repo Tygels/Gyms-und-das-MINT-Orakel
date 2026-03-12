@@ -1,8 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cf7dxolpk0me7"]
+[gd_scene load_steps=23 format=3 uid="uid://cf7dxolpk0me7"]
 
 [ext_resource type="Texture2D" uid="uid://dgqowxonwxcvo" path="res://test data/WhatsApp Bild 2025-12-11 um 09.42.06_d43577b8.jpg" id="2_34uh1"]
 [ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
-[ext_resource type="Texture2D" uid="uid://cm6ea8r3ktrbv" path="res://Dateien/ChatGPT_Image_17._Feb._2026_17_24_13.png" id="2_yv41i"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="3_3n7ag"]
 [ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://KI-Chat.gd" id="5_835lw"]
 [ext_resource type="Texture2D" uid="uid://db7j4mqca5ct2" path="res://Dateien/Ui1.png" id="8_3n7ag"]
@@ -10,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://majgya240xhp" path="res://Dateien/backbutton.png" id="10_7qyxr"]
 [ext_resource type="Texture2D" uid="uid://cq21a3qquxree" path="res://Dateien/Ui3.png" id="10_dnrov"]
 [ext_resource type="Texture2D" uid="uid://6op1r5to601r" path="res://Dateien/Ui3h.png" id="11_7qyxr"]
-[ext_resource type="Texture2D" uid="uid://bmkn6w0lkkp0m" path="res://Dateien/bpress.png" id="11_yv41i"]
 [ext_resource type="Texture2D" uid="uid://dimuslp87toea" path="res://Dateien/Ui3l.png" id="12_yv41i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qyxr"]
@@ -35,33 +33,15 @@ texture = ExtResource("12_yv41i")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yel7e"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yel7e"]
-texture = ExtResource("11_yv41i")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbcg4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnuwi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxuc2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq5pw"]
 
 [node name="Interaktion" type="Node2D"]
 scale = Vector2(0.599996, 0.59998)
 script = ExtResource("2_us1gg")
 
-[node name="ChatGptImage17_Feb_2026172413" type="Sprite2D" parent="."]
-position = Vector2(960.0064, 541.68463)
-scale = Vector2(1.8782678, 0.7031483)
-texture = ExtResource("2_yv41i")
-
-[node name="ColorRect" type="ColorRect" parent="ChatGptImage17_Feb_2026172413"]
-offset_left = -511.11264
-offset_top = -770.37036
-offset_right = 512.0
-offset_bottom = 770.3707
-color = Color(0, 0, 0, 0.5647059)
-
 [node name="Hintergrund" type="TextureRect" parent="."]
-visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_34uh1")
@@ -69,7 +49,8 @@ metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Lehrer" type="Sprite2D" parent="."]
-position = Vector2(523.33685, 643.3548)
+position = Vector2(518.33673, 528.35095)
+scale = Vector2(1.615, 1.6149999)
 
 [node name="GymsTestRemovebgPreview" type="Sprite2D" parent="."]
 position = Vector2(1386.6759, 511.68365)
@@ -154,21 +135,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="ChatUI/Control/Ui3/Button"]
 
-[node name="Backbutton" type="Sprite2D" parent="ChatUI"]
+[node name="Backbutton" type="Sprite2D" parent="ChatUI/Control"]
 position = Vector2(185.00127, 576.68585)
 scale = Vector2(0.62590015, 0.6515205)
 texture = ExtResource("10_7qyxr")
 
-[node name="BackButton" type="Button" parent="ChatUI/Backbutton"]
+[node name="BackButton" type="Button" parent="ChatUI/Control/Backbutton"]
 offset_left = -140.00093
 offset_top = -60.001984
 offset_right = 140.00096
 offset_bottom = 60.002045
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yel7e")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_yel7e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xbcg4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rnuwi")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_mxuc2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rq5pw")
 
 [connection signal="editing_toggled" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_editing_toggled"]
 [connection signal="text_submitted" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_text_submitted"]

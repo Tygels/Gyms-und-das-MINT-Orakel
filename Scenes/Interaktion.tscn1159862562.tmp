@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf7dxolpk0me7"]
+
+[ext_resource type="Texture2D" uid="uid://dgqowxonwxcvo" path="res://test data/WhatsApp Bild 2025-12-11 um 09.42.06_d43577b8.jpg" id="2_34uh1"]
+[ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
+[ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="3_3n7ag"]
+[ext_resource type="Texture2D" uid="uid://tkxg18pnflc1" path="res://test data/WhatsApp Bild 2025-12-11 um 18.56.51_5531bdc9.jpg" id="3_ok03x"]
+[ext_resource type="Texture2D" uid="uid://c5s5l1b6dpcso" path="res://test data/Exit.png" id="3_voxyk"]
+[ext_resource type="Texture2D" uid="uid://dws722cuh36gf" path="res://test data/Start.png" id="4_ok03x"]
+[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://KI-Chat.gd" id="5_835lw"]
+[ext_resource type="Script" uid="uid://by0ocj8txfjqn" path="res://Scenes/chat_ui.gd" id="7_ok03x"]
+
+[node name="Interaktion" type="Node2D"]
+scale = Vector2(0.599996, 0.59998)
+script = ExtResource("2_us1gg")
+
+[node name="Hintergrund" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_34uh1")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Lehrer" type="Sprite2D" parent="."]
+position = Vector2(518.33673, 528.35095)
+scale = Vector2(1.615, 1.6149999)
+
+[node name="GymsTestRemovebgPreview" type="Sprite2D" parent="."]
+position = Vector2(1386.6759, 511.68365)
+scale = Vector2(1.615, 1.615)
+texture = ExtResource("3_3n7ag")
+
+[node name="Textbox" type="TextureRect" parent="."]
+offset_left = 102.0
+offset_top = 620.0
+offset_right = 1830.0
+offset_bottom = 1052.0
+texture = ExtResource("3_ok03x")
+expand_mode = 1
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 359.0
+offset_right = 1086.0
+offset_bottom = 451.0
+
+[node name="MainButtons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1086.0
+offset_top = 529.0
+offset_right = 1126.0
+offset_bottom = 569.0
+scale = Vector2(0.996104, 0.928009)
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="MainButtons"]
+layout_mode = 0
+offset_left = 6.99997
+offset_top = 288.0
+offset_right = 715.0
+offset_bottom = 496.0
+icon = ExtResource("3_voxyk")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="MainButtons"]
+layout_mode = 0
+offset_left = -942.0
+offset_top = 124.0
+offset_right = -234.0
+offset_bottom = 332.0
+icon = ExtResource("4_ok03x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Node" type="Node" parent="MainButtons"]
+
+[node name="ChatUI" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_ok03x")
+
+[node name="Control" type="Control" parent="ChatUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_835lw")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ChatUI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatUI/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ChatUI/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ChatUI/Control/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChatUI/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatUI/Control/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ChatUI/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ChatUI/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "senden"
+metadata/_edit_use_anchors_ = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="ChatUI/Control/MarginContainer/VBoxContainer/HBoxContainer/Button"]
+
+[node name="LineEdit" type="LineEdit" parent="ChatUI/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="ChatUI/Control/MarginContainer/VBoxContainer/HBoxContainer/Button" to="ChatUI/Control" method="_on_button_pressed"]
+[connection signal="request_completed" from="ChatUI/Control/MarginContainer/VBoxContainer/HBoxContainer/Button/HTTPRequest" to="ChatUI/Control" method="_on_http_request_request_completed"]
