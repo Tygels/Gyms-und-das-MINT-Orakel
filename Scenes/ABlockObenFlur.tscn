@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cte02454ehi3x"]
+[gd_scene load_steps=13 format=3 uid="uid://cte02454ehi3x"]
 
 [ext_resource type="Texture2D" uid="uid://l14kstfbm3x0" path="res://Dateien/A-Block_A207-A205.png" id="1_33ie2"]
+[ext_resource type="Script" uid="uid://cehu8efpsgbx7" path="res://Scripts/ABlockOben-A207.gd" id="1_q7fxt"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="3_wfx3g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33ie2"]
 normal = Vector2(1, 0)
@@ -33,6 +35,7 @@ size = Vector2(95, 46)
 size = Vector2(116, 35)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_q7fxt")
 
 [node name="ABlockA207A205" type="Sprite2D" parent="."]
 texture = ExtResource("1_33ie2")
@@ -87,6 +90,7 @@ shape = SubResource("RectangleShape2D_q7fxt")
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-246.875, -229)
@@ -94,6 +98,7 @@ shape = SubResource("RectangleShape2D_rsyhj")
 metadata/_edit_lock_ = true
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(243, -231)
@@ -101,6 +106,7 @@ shape = SubResource("RectangleShape2D_qepqx")
 metadata/_edit_lock_ = true
 
 [node name="Area2D3" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(-1, -627)
@@ -108,8 +114,16 @@ shape = SubResource("RectangleShape2D_rao0f")
 metadata/_edit_lock_ = true
 
 [node name="Area2D4" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
 position = Vector2(-1, 551)
 shape = SubResource("RectangleShape2D_qso35")
 metadata/_edit_lock_ = true
+
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("3_wfx3g")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_Teleport_A_232"]
+[connection signal="body_entered" from="Area2D2" to="." method="_Teleport_A_223"]
+[connection signal="body_entered" from="Area2D3" to="." method="_Teleport_A_205"]
+[connection signal="body_entered" from="Area2D4" to="." method="_teleport_A_207_Raum"]

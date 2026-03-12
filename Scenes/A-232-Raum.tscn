@@ -1,6 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj2tg5yynxgy"]
+[gd_scene load_steps=14 format=3 uid="uid://dj2tg5yynxgy"]
 
+[ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_exw2k"]
 [ext_resource type="Texture2D" uid="uid://nyjvnsn82ns8" path="res://Dateien/Klassenzimmer A232.png" id="1_rgexp"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_yk8p0"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_t57i8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgexp"]
 size = Vector2(200, 52)
@@ -33,6 +36,7 @@ size = Vector2(852, 134)
 size = Vector2(116, 39)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_exw2k")
 
 [node name="KlassenzimmerA232" type="Sprite2D" parent="."]
 position = Vector2(-3, -2)
@@ -149,8 +153,17 @@ shape = SubResource("RectangleShape2D_k4ke6")
 
 [node name="Tür" type="Area2D" parent="."]
 position = Vector2(400.53104, -403.64606)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tür"]
 position = Vector2(31.468964, 7.146057)
 shape = SubResource("RectangleShape2D_i7cmf")
 metadata/_edit_lock_ = true
+
+[node name="Spieler" parent="." instance=ExtResource("2_yk8p0")]
+position = Vector2(414, -301)
+
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_t57i8")]
+position = Vector2(400.53104, -403.64606)
+
+[connection signal="body_entered" from="Tür" to="." method="_on_area_2d_body_entered"]

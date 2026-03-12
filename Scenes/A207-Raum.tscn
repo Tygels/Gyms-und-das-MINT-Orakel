@@ -197,7 +197,7 @@ position = Vector2(266, -430)
 shape = SubResource("RectangleShape2D_hhyb7")
 
 [node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
-position = Vector2(275, -295)
+position = Vector2(275, -307)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_jfq0s")]
 visible = false
