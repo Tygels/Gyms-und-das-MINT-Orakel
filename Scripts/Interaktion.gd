@@ -37,9 +37,29 @@ func _on_spieler_interact() -> void:
 	Teacher_id = Spieler.Teacher_id
 	match Teacher_id:
 		1:
-			Teacher_portrait = load("res://test data/Dr._Wagener_Icon-default-removebg-preview.png")
+			Teacher_portrait = load("res://Dateien/Klinkhammer.png")
 		2:
-			Teacher_portrait = load("res://test data/testTeacher1.png")
+			Teacher_portrait = load("res://Dateien/Bachhausen2.png")
 		3:
-			Teacher_portrait = load("res://test data/testTeacher.png")
+			Teacher_portrait = load("res://Dateien/Achenbach.png")
+		4:
+			Teacher_portrait = load("res://Dateien/Dr. Wagener Icon-default.png")
+		5:
+			Teacher_portrait = load("res://Dateien/Bloem.png")
+		6:
+			Teacher_portrait = load("res://Dateien/Christogeoros.png")
+		7:
+			Teacher_portrait = load("res://Dateien/Feldmann.png")
+		8:
+			Teacher_portrait = load("res://Dateien/Heim.png")
+		9:
+			Teacher_portrait = load("res://Dateien/Matoussi.png")
+		10:
+			Teacher_portrait = load("res://Dateien/Schmieding.png")
+		11:
+			Teacher_portrait = load("res://Dateien/Steinhoff.png")
+		12:
+			Teacher_portrait = load("res://Dateien/Wutke.png")
+		13:
+			Teacher_portrait = load("res://Dateien/Gropper.png")
 	Teacher_sprite.set_texture(Teacher_portrait)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b023vvit8ao13"]
 
-[ext_resource type="Script" uid="uid://ejnjx2u42b2f" path="res://Scripts/A207-testRaum-Teleport.gd" id="1_71dqj"]
+[ext_resource type="Script" uid="uid://ejnjx2u42b2f" path="res://Scripts/ABlockOben-testRaum-Teleport.gd" id="1_71dqj"]
 [ext_resource type="Texture2D" uid="uid://cm6ea8r3ktrbv" path="res://Dateien/ChatGPT_Image_17._Feb._2026_17_24_13.png" id="1_hktdb"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_71dqj"]
 [ext_resource type="Script" uid="uid://dequnw4mb7s1y" path="res://Scripts/LehrerSpawnerA207.gd" id="2_l6es5"]

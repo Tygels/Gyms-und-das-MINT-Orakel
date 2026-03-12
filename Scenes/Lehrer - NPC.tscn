@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2mhahvbuym54"]
+[gd_scene load_steps=5 format=3 uid="uid://c2mhahvbuym54"]
 
 [ext_resource type="Script" uid="uid://532ntrbd5pc3" path="res://Scripts/Lehrer.gd" id="1_hh1sx"]
 [ext_resource type="Script" uid="uid://cjndj7dr21vsv" path="res://Scripts/PatrolLehrer.gd" id="2_hh1sx"]
-[ext_resource type="Texture2D" uid="uid://bs5jnivfo66tv" path="res://Dateien/Gropper.png" id="3_hh1sx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qih2i"]
 size = Vector2(38.25, 72.94116)
@@ -19,8 +18,7 @@ collision_layer = 4
 script = ExtResource("2_hh1sx")
 
 [node name="Portrait" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.1, 0.09)
-texture = ExtResource("3_hh1sx")
+scale = Vector2(0.1, 0.085)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 15.882355)

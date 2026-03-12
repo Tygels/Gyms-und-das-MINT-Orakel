@@ -20,8 +20,7 @@ metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Lehrer" type="Sprite2D" parent="."]
-position = Vector2(518.33673, 528.35095)
-scale = Vector2(1.615, 1.6149999)
+position = Vector2(523.33685, 643.3548)
 
 [node name="GymsTestRemovebgPreview" type="Sprite2D" parent="."]
 position = Vector2(1386.6759, 511.68365)

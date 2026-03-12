@@ -6,9 +6,10 @@ var npc_list: Array = []
 
 func _ready() -> void:
 	var npcData = [
-		{"id": 4, "position": Vector2(-260,-270), "portrait": "res://Dateien/Dr. Wagener Icon-default.png"},
-		{"id": 5, "position": Vector2(-260,-270), "portrait": "res://Dateien/Bloem.png"},
-		{"id": 6, "position": Vector2(-260,-270), "portrait":"res://Dateien/Christogeoros.png" }
+		{"id": 11, "position": Vector2(-320,-280), "portrait": "res://Dateien/Steinhoff.png"},
+		{"id": 12, "position": Vector2(-320,-280), "portrait": "res://Dateien/Wutke.png"},
+		{"id": 13, "position": Vector2(-320,-280), "portrait": "res://Dateien/Gropper.png"},
+		{"id": 14, "position": Vector2(-320,-280), "portrait": "res://Dateien/Langer.png"}
 	]
 	for data in npcData:
 		spawn_npc(data.id, data.position, data.portrait)
