@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_jfq0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncaqk"]
-size = Vector2(144, 63)
+size = Vector2(142, 46.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfq0s"]
 size = Vector2(225, 19.5)
@@ -25,6 +25,7 @@ size = Vector2(94, 337)
 size = Vector2(97, 306)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hhyb7"]
+normal = Vector2(4.3711385e-08, -1)
 distance = -511.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_71dqj"]
@@ -33,10 +34,10 @@ distance = -765.7754
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ncaqk"]
 normal = Vector2(1, 0)
-distance = -471.0648
+distance = -510.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhyb7"]
-size = Vector2(112, 206)
+size = Vector2(146, 58)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_71dqj")
@@ -53,14 +54,14 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-35, -94)
+position = Vector2(-36, -102)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, 95)
+position = Vector2(226, 87)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ncaqk")
@@ -70,67 +71,68 @@ metadata/_edit_lock_ = true
 position = Vector2(-294, 95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D3"]
+position = Vector2(-1, -9.125)
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-35, 93)
+position = Vector2(-34, 87)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D4"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, -94)
+position = Vector2(226, -101)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D5"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-295, -94)
+position = Vector2(-295, -103)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D6"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-35, 283)
+position = Vector2(-38, 273)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D7"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Kollision"]
-position = Vector2(227, 475)
+position = Vector2(226, 466)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D8"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-294, 475)
+position = Vector2(-294, 467)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D9"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-35, 475)
+position = Vector2(-36, 467)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D10"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Kollision"]
-position = Vector2(226, 284)
+position = Vector2(227, 276)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D11"]
 shape = SubResource("RectangleShape2D_ncaqk")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Kollision"]
-position = Vector2(-294, 283)
+position = Vector2(-294, 276)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kollision/StaticBody2D12"]
 shape = SubResource("RectangleShape2D_ncaqk")
@@ -191,7 +193,7 @@ shape = SubResource("WorldBoundaryShape2D_ncaqk")
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(275, -494)
+position = Vector2(266, -430)
 shape = SubResource("RectangleShape2D_hhyb7")
 
 [node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
