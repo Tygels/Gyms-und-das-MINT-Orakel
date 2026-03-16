@@ -1,49 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://hkja62n8eiui"]
+[gd_scene load_steps=4 format=3 uid="uid://hkja62n8eiui"]
 
-[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://test.gd" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://cjndj7dr21vsv" path="res://Scripts/PatrolLehrer.gd" id="1_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://bc7r6pfye7vf8" path="res://test data/Dr._Wagener_Icon-default-removebg-preview.png" id="2_6uqi0"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
+size = Vector2(187, 425)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_37kl0")
-metadata/_edit_use_anchors_ = true
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_8uh7m")
 
-[node name="TextEdit" type="TextEdit" parent="Control"]
-layout_mode = 0
-offset_right = 526.0
-offset_bottom = 118.0
-editable = false
-metadata/_edit_use_anchors_ = true
+[node name="Dr_WagenerIconDefaultRemovebgPreview" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_6uqi0")
 
-[node name="LineEdit" type="LineEdit" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 10.25
-anchor_top = 3.9
-anchor_right = 10.25
-anchor_bottom = 3.9
-offset_left = -336.0
-offset_top = 7.0
-offset_right = -115.0
-offset_bottom = 58.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 411.0
-offset_top = 163.0
-offset_right = 479.0
-offset_bottom = 193.0
-text = "send"
-metadata/_edit_use_anchors_ = true
-
-[node name="HTTPRequest" type="HTTPRequest" parent="Control/Button"]
-
-[connection signal="editing_toggled" from="Control/LineEdit" to="Control" method="_on_line_edit_editing_toggled"]
-[connection signal="text_submitted" from="Control/LineEdit" to="Control" method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]
-[connection signal="request_completed" from="Control/Button/HTTPRequest" to="Control" method="_on_http_request_request_completed"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17.5, 12.5)
+shape = SubResource("RectangleShape2D_8uh7m")

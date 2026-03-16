@@ -1,0 +1,152 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjuahv4rkar4e"]
+
+[ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_1hrn7"]
+[ext_resource type="Texture2D" uid="uid://bliodhhmb5qgm" path="res://Dateien/Klassenzimmer A223 - rote Tische.png" id="1_yf22a"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_8utwl"]
+[ext_resource type="Script" uid="uid://3d0sotepmkmj" path="res://Scripts/LehrerSpawnerA223.gd" id="4_a6cfh"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_wpqs6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf22a"]
+distance = 20.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8utwl"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1hrn7"]
+normal = Vector2(0.9999443, 0.010553075)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wpqs6"]
+normal = Vector2(0, 1)
+distance = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6cfh"]
+size = Vector2(119, 104.99999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4wro"]
+size = Vector2(315, 47.000015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiq6m"]
+size = Vector2(110.033325, 1007)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq0j7"]
+size = Vector2(142, 407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga5xw"]
+size = Vector2(140, 407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emqdv"]
+size = Vector2(108, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xo66"]
+size = Vector2(28.212631, 135)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1hrn7")
+metadata/_edit_lock_ = true
+
+[node name="KlassenzimmerA223RoteTische" type="Sprite2D" parent="."]
+texture = ExtResource("1_yf22a")
+metadata/_edit_lock_ = true
+
+[node name="Collisions" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Worldborder" type="StaticBody2D" parent="Collisions"]
+position = Vector2(0, 785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder"]
+shape = SubResource("WorldBoundaryShape2D_yf22a")
+metadata/_edit_lock_ = true
+
+[node name="Worldborder2" type="StaticBody2D" parent="Collisions"]
+position = Vector2(477, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder2"]
+shape = SubResource("WorldBoundaryShape2D_8utwl")
+metadata/_edit_lock_ = true
+
+[node name="Worldborder3" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-511.75836, 27.807388)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder3"]
+shape = SubResource("WorldBoundaryShape2D_1hrn7")
+metadata/_edit_lock_ = true
+
+[node name="Worldbord4" type="StaticBody2D" parent="Collisions"]
+position = Vector2(156, -502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldbord4"]
+shape = SubResource("WorldBoundaryShape2D_wpqs6")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+position = Vector2(312.66888, -269.21036)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2(2.8311157, 0.71035767)
+shape = SubResource("RectangleShape2D_a6cfh")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-42.793427, -360.67923)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
+position = Vector2(8.2934265, -5.8207703)
+shape = SubResource("RectangleShape2D_b4wro")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-508.03333, -231.22203)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D3"]
+position = Vector2(45.016663, 498.72205)
+shape = SubResource("RectangleShape2D_jiq6m")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-102.07089, -55.00038)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D4"]
+position = Vector2(11.070892, 144.50037)
+shape = SubResource("RectangleShape2D_xq0j7")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Collisions"]
+position = Vector2(252.67691, -98.020325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D5"]
+position = Vector2(9.32309, 187.52032)
+shape = SubResource("RectangleShape2D_ga5xw")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(289.63635, -477.909)
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.3636475, 11.908997)
+shape = SubResource("RectangleShape2D_emqdv")
+metadata/_edit_lock_ = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-502.21262, -301.85352)
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(4.1062927, -11.646484)
+shape = SubResource("RectangleShape2D_3xo66")
+metadata/_edit_lock_ = true
+
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("4_a6cfh")
+
+[node name="Spieler" parent="." instance=ExtResource("2_8utwl")]
+position = Vector2(194, -361)
+
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_wpqs6")]
+position = Vector2(289.63635, -477.909)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

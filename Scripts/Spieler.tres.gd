@@ -1,16 +1,16 @@
 extends Node2D
 
-var speed = 200.0  # speed in pixels/sec
-@onready var spieler = $CharacterBody2D
-@onready var Interaktion = $CharacterBody2D/Interaktion
+var speed = 300.0  # speed in pixels/sec
+@onready var spieler = $Spieler
+@onready var Interaktion = $Spieler/Interaktion
 signal interacted(teacher_id)
-var current_teacher = null
+signal interact
+@export var current_teacher = null
+@export var Teacher_id = null
 @onready var spawner = $"../LehrerSpawner"
 
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
-
-
 
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO
@@ -40,8 +40,13 @@ func _on_lehrer_interacted(teacher_id: Variant) -> void:
 	for npc in spawner.npc_list:
 		if npc.teacher_id == teacher_id:
 			current_teacher = npc
+			Teacher_id = teacher_id
 			break
+	emit_signal("interact")
 	Interaktion.visible = true
+	
+	for npc in spawner.npc_list:
+		npc.hide()
 
 func _on_interaktion_exit_button_pressed() -> void:
 	Interaktion.visible = false
@@ -50,3 +55,7 @@ func _on_interaktion_exit_button_pressed() -> void:
 		current_teacher.show()
 		current_teacher.is_active = true
 		current_teacher = null
+		Teacher_id = null
+	for npc in spawner.npc_list:
+		npc.show()
+		npc.resume_movement()
