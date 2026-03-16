@@ -9,7 +9,7 @@ func _ready() -> void:
 		{"id": 11, "position": Vector2(-320,-280), "portrait": "res://Dateien/Steinhoff.png"},
 		{"id": 12, "position": Vector2(0,-60), "portrait": "res://Dateien/Wutke.png"},
 		{"id": 13, "position": Vector2(-60,100), "portrait": "res://Dateien/Gropper.png"},
-		{"id": 14, "position": Vector2(200,-270), "portrait": "res://Dateien/Langerklein.png"}
+		{"id": 14, "position": Vector2(200,-270), "portrait": "res://Dateien/Langer.png"}
 	]
 	for data in npcData:
 		spawn_npc(data.id, data.position, data.portrait)

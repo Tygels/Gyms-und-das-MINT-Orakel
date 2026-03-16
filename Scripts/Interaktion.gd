@@ -53,7 +53,7 @@ func _on_spieler_interact() -> void:
 		3:
 			Teacher_portrait = load("res://Dateien/Achenbach.png")
 		4:
-			Teacher_portrait = load("res://Dateien/Dr. Wagener Icon-default.png")
+			Teacher_portrait = load("res://Dateien/Wagener.png")
 		5:
 			Teacher_portrait = load("res://Dateien/Bloem.png")
 		6:
@@ -73,5 +73,5 @@ func _on_spieler_interact() -> void:
 		13:
 			Teacher_portrait = load("res://Dateien/Gropper.png")
 		14:
-			Teacher_portrait = load("res://Dateien/Langerklein.png")
+			Teacher_portrait = load("res://Dateien/Langer.png")
 	Teacher_sprite.set_texture(Teacher_portrait)

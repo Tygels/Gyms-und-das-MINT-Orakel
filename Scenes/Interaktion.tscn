@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dyrdbhob6yykv" path="res://Scripts/Interaktion.gd" id="2_us1gg"]
 [ext_resource type="Texture2D" uid="uid://cm6ea8r3ktrbv" path="res://Dateien/ChatGPT_Image_17._Feb._2026_17_24_13.png" id="2_yv41i"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="3_3n7ag"]
-[ext_resource type="Script" uid="uid://cqyj8q2xqqef6" path="res://KI-Chat.gd" id="5_835lw"]
+[ext_resource type="Script" uid="uid://cujn5noqges58" path="res://Scripts/Ki-Chat-merge.gd" id="5_yv41i"]
 [ext_resource type="Texture2D" uid="uid://db7j4mqca5ct2" path="res://Dateien/Ui1.png" id="8_3n7ag"]
 [ext_resource type="Texture2D" uid="uid://bnfrg8bk85xwp" path="res://Dateien/Ui2.png" id="9_dnrov"]
 [ext_resource type="Texture2D" uid="uid://majgya240xhp" path="res://Dateien/backbutton.png" id="10_7qyxr"]
@@ -86,7 +86,7 @@ offset_bottom = 40.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_835lw")
+script = ExtResource("5_yv41i")
 metadata/_edit_use_anchors_ = true
 
 [node name="Ui1" type="Sprite2D" parent="ChatUI/Control"]
