@@ -10,6 +10,7 @@ size = Vector2(38.25, 72.94116)
 size = Vector2(51, 124)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_hh1sx")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

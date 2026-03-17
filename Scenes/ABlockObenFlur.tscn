@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cte02454ehi3x"]
+[gd_scene load_steps=14 format=3 uid="uid://cte02454ehi3x"]
 
 [ext_resource type="Texture2D" uid="uid://l14kstfbm3x0" path="res://Dateien/A-Block_A207-A205.png" id="1_33ie2"]
 [ext_resource type="Script" uid="uid://cehu8efpsgbx7" path="res://Scripts/ABlockOben-A207.gd" id="1_q7fxt"]
+[ext_resource type="Texture2D" uid="uid://fafq13rg1lem" path="res://Dateien/Screenshot 2026-03-17 185527.png" id="2_2gowf"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="3_wfx3g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33ie2"]
@@ -35,7 +36,13 @@ size = Vector2(95, 46)
 size = Vector2(116, 35)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_q7fxt")
+
+[node name="Screenshot20260317185527" type="Sprite2D" parent="."]
+position = Vector2(-7.0000305, -190.5)
+scale = Vector2(41.184784, 14.748092)
+texture = ExtResource("2_2gowf")
 
 [node name="ABlockA207A205" type="Sprite2D" parent="."]
 texture = ExtResource("1_33ie2")

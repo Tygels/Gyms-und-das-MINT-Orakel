@@ -41,6 +41,7 @@ size = Vector2(108, 48)
 size = Vector2(28.212631, 135)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_1hrn7")
 metadata/_edit_lock_ = true
 
@@ -144,6 +145,7 @@ script = ExtResource("4_a6cfh")
 
 [node name="Spieler" parent="." instance=ExtResource("2_8utwl")]
 position = Vector2(194, -361)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_wpqs6")]
 position = Vector2(289.63635, -477.909)

@@ -6,7 +6,6 @@
 [node name="Node2D2" type="Node2D"]
 
 [node name="Node2D" parent="." instance=ExtResource("2_7lihs")]
-scale = Vector2(1.1, 1.1)
 
 [node name="Spieler" parent="." instance=ExtResource("2_b2bpf")]
 position = Vector2(0, -6)

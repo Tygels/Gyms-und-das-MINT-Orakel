@@ -14,6 +14,12 @@ config/name="GymS und Das Mint-Orakel godot"
 run/main_scene="uid://chcy38ibkumm0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
 [dotnet]
 
 project/assembly_name="GymS und Das Mint-Orakel godot"

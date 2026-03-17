@@ -40,6 +40,7 @@ distance = -510.0
 size = Vector2(146, 58)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_l6es5")
 metadata/_edit_lock_ = true
 
@@ -198,6 +199,7 @@ script = ExtResource("2_l6es5")
 
 [node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
 position = Vector2(275, -307)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_jfq0s")]
 visibility_layer = 31

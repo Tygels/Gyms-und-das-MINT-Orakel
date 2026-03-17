@@ -37,6 +37,7 @@ size = Vector2(852, 134)
 size = Vector2(116, 39)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_exw2k")
 
 [node name="KlassenzimmerA232" type="Sprite2D" parent="."]
@@ -166,6 +167,7 @@ script = ExtResource("3_he1wt")
 
 [node name="Spieler" parent="." instance=ExtResource("2_yk8p0")]
 position = Vector2(414, -301)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_t57i8")]
 position = Vector2(435, -382)

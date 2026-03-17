@@ -45,7 +45,6 @@ texture = ExtResource("11_yv41i")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq5pw"]
 
 [node name="Interaktion" type="Node2D"]
-scale = Vector2(0.599996, 0.59998)
 script = ExtResource("2_us1gg")
 
 [node name="ChatGptImage17_Feb_2026172413" type="Sprite2D" parent="."]
@@ -54,11 +53,12 @@ scale = Vector2(1.8782678, 0.7031483)
 texture = ExtResource("2_yv41i")
 
 [node name="ColorRect" type="ColorRect" parent="ChatGptImage17_Feb_2026172413"]
-offset_left = -511.11264
+offset_left = -511.64505
 offset_top = -770.37036
-offset_right = 512.0
+offset_right = 511.46762
 offset_bottom = 770.3707
 color = Color(0, 0, 0, 0.5647059)
+metadata/_edit_use_anchors_ = true
 
 [node name="Hintergrund" type="TextureRect" parent="."]
 visible = false
@@ -81,6 +81,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="ChatUI"]
 anchors_preset = 0
@@ -169,6 +170,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_yel7e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rnuwi")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_mxuc2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rq5pw")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="editing_toggled" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_editing_toggled"]
 [connection signal="text_submitted" from="ChatUI/Control/Ui2/LineEdit" to="ChatUI/Control" method="_on_line_edit_text_submitted"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ftt2s6kynp"]
 
-[ext_resource type="Script" path="res://Scripts/Spieler.tres.gd" id="1_2om84"]
+[ext_resource type="Script" uid="uid://0s7brssacbrx" path="res://Scripts/Spieler.tres.gd" id="1_2om84"]
 [ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="1_tihay"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="2_2om84"]
 
@@ -9,6 +9,7 @@ size = Vector2(97, 120)
 
 [node name="Spieler" type="Node2D"]
 visibility_layer = 2
+scale = Vector2(2, 2)
 script = ExtResource("1_2om84")
 
 [node name="Spieler" type="CharacterBody2D" parent="."]
@@ -29,7 +30,8 @@ shape = SubResource("RectangleShape2D_2om84")
 
 [node name="Interaktion" parent="Spieler" instance=ExtResource("1_tihay")]
 visible = false
-position = Vector2(-576, -324.00003)
+position = Vector2(-479, -270)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="interact" from="." to="Spieler/Interaktion" method="_on_spieler_interact"]
 [connection signal="exit_button_pressed" from="Spieler/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]
