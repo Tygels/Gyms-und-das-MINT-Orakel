@@ -57,10 +57,10 @@ _data = {
 [node name="SceneTransimissionAnimation" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -6029.0
-offset_top = -3388.0
-offset_right = 7071.0
-offset_bottom = 5016.0
+offset_left = -10831.0
+offset_top = -9192.0
+offset_right = 20383.0
+offset_bottom = 10248.0
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

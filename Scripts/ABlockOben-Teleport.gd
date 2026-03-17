@@ -9,8 +9,8 @@ func _ready() -> void:
 
 
 
-func _on_area_2d_body_entered(_body) -> void:
-	if _body.name == "Spieler":
+func _on_area_2d_body_entered(body) -> void:
+	if body.name == "Spieler":
 		$SceneTransimissionAnimation.visible = true
 		SceneTransimissionAnimation.play("Fade_in")
 		await  get_tree().create_timer(0.5).timeout

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b023vvit8ao13"]
 
-[ext_resource type="Script" uid="uid://ejnjx2u42b2f" path="res://Scripts/ABlockOben-testRaum-Teleport.gd" id="1_71dqj"]
 [ext_resource type="Texture2D" uid="uid://cm6ea8r3ktrbv" path="res://Dateien/ChatGPT_Image_17._Feb._2026_17_24_13.png" id="1_hktdb"]
+[ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_l6es5"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_71dqj"]
 [ext_resource type="Script" uid="uid://dequnw4mb7s1y" path="res://Scripts/LehrerSpawnerA207.gd" id="2_l6es5"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_jfq0s"]
@@ -40,7 +40,7 @@ distance = -510.0
 size = Vector2(146, 58)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_71dqj")
+script = ExtResource("1_l6es5")
 metadata/_edit_lock_ = true
 
 [node name="Hintergrund" type="Sprite2D" parent="."]
@@ -200,6 +200,6 @@ script = ExtResource("2_l6es5")
 position = Vector2(275, -307)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_jfq0s")]
-visible = false
+visibility_layer = 31
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
