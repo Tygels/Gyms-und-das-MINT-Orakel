@@ -38,7 +38,7 @@ func _apply_chat_font():
 	
 
 func _on_backButton_pressed():
-
+	$ChatUI/Control/Ui1/TextEdit.set_text("")
 	emit_signal("exit_button_pressed")
 
 

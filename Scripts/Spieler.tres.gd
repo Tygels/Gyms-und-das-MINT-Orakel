@@ -37,16 +37,17 @@ func _physics_process(_delta):
 
 
 func _on_lehrer_interacted(teacher_id: Variant) -> void:
-	for npc in spawner.npc_list:
-		if npc.teacher_id == teacher_id:
-			current_teacher = npc
-			Teacher_id = teacher_id
-			break
-	emit_signal("interact")
-	Interaktion.visible = true
-	
-	for npc in spawner.npc_list:
-		npc.hide()
+	if Interaktion.visible == false:
+		for npc in spawner.npc_list:
+			if npc.teacher_id == teacher_id:
+				current_teacher = npc
+				Teacher_id = teacher_id
+				break
+		emit_signal("interact")
+		Interaktion.visible = true
+		
+		for npc in spawner.npc_list:
+			npc.hide()
 
 func _on_interaktion_exit_button_pressed() -> void:
 	Interaktion.visible = false
