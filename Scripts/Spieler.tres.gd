@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var speed = 400.0  # speed in pixels/sec
 @onready var spieler = $Spieler
 @onready var Interaktion = $Spieler/Interaktion
@@ -8,22 +9,26 @@ signal interact
 @export var current_teacher = null
 @export var Teacher_id = null
 @onready var spawner = $"../LehrerSpawner"
+var LehrerConfig = ConfigFile.new()
+@onready var Pop_Up_Sprite = $"Spieler/Pop-Up"
+@onready var Pokedex = $Spieler/Pokedex/ScrollContainer
 
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
 
+	LehrerConfig.load("Lehrer")
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO
 	# Bewegungen
-	if Input.is_action_pressed("Bewegung_oben") and (Interaktion.visible == false):
+	if Input.is_action_pressed("Bewegung_oben") and (Interaktion.visible == false) and (Pokedex.visible == false):
 		richtung.y -= 1
-	if Input.is_action_pressed("Bewegung_unten") and (Interaktion.visible == false):
+	if Input.is_action_pressed("Bewegung_unten") and (Interaktion.visible == false) and (Pokedex.visible == false):
 		richtung.y += 1
 	
-	if Input.is_action_pressed("Bewegung_rechts") and (Interaktion.visible == false):
+	if Input.is_action_pressed("Bewegung_rechts") and (Interaktion.visible == false) and (Pokedex.visible == false):
 		richtung.x =+ 1
 	
-	if Input.is_action_pressed("Bewegung_links") and (Interaktion.visible == false):
+	if Input.is_action_pressed("Bewegung_links") and (Interaktion.visible == false) and (Pokedex.visible == false):
 		richtung.x =- 1
 	
 	# Normieren damit diagonale bewegungen nicht schneller sind
@@ -46,8 +51,13 @@ func _on_lehrer_interacted(teacher_id: Variant) -> void:
 		emit_signal("interact")
 		Interaktion.visible = true
 		
-		for npc in spawner.npc_list:
-			npc.hide()
+	# Save the interaction as "True" (using a boolean is better than a string)
+	SaveManager.set_value("Lehrer", str(teacher_id), true)
+	# Optional: Save immediately to disk so progress isn't lost on a crash
+	SaveManager.save_data()
+		
+	for npc in spawner.npc_list:
+		npc.hide()
 
 func _on_interaktion_exit_button_pressed() -> void:
 	Interaktion.visible = false
@@ -60,3 +70,13 @@ func _on_interaktion_exit_button_pressed() -> void:
 	for npc in spawner.npc_list:
 		npc.show()
 		npc.resume_movement()
+		
+	Pop_Up()
+
+func Pop_Up() -> void:
+	if SaveManager.get_value("Lehrer", str(Teacher_id)) == true: #Fall = Lehrer ist schon bekannt
+		pass
+	else: #Fall = Lehrer unbkannt
+		Pop_Up_Sprite.visible = true
+		await  get_tree().create_timer(0.5).timeout
+		Pop_Up_Sprite.visible = false

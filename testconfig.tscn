@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwfntm45wh437"]
+
+[ext_resource type="Script" uid="uid://b0al63klb71tg" path="res://text_edit.gd" id="3_8lyd1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 230.0
+offset_top = 352.0
+offset_right = 581.0
+offset_bottom = 410.5
+script = ExtResource("3_8lyd1")
+
+[node name="Button" type="Button" parent="TextEdit"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 4.0
+offset_right = 411.0
+offset_bottom = 57.0
+
+[connection signal="pressed" from="TextEdit/Button" to="TextEdit" method="_on_button_pressed"]

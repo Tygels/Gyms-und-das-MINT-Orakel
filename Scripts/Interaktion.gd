@@ -7,6 +7,7 @@ signal exit_button_pressed
 @onready var Teacher_id = Spieler.Teacher_id
 @onready var Teacher_sprite = $Lehrer
 
+
 func _ready():
 	# Connect signals
 

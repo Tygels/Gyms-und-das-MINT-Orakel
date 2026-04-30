@@ -20,6 +20,7 @@ func spawn_npc(id: int, position: Vector2, portrait: String):
 	npc.teacher_id = id
 	npc.position = position
 	npc.portrait = portrait
+	npc.visibility_layer = 3
 	
 	add_child(npc)
 	

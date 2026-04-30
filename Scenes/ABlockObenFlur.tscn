@@ -41,7 +41,7 @@ script = ExtResource("1_q7fxt")
 
 [node name="Screenshot20260317185527" type="Sprite2D" parent="."]
 position = Vector2(-7.0000305, -190.5)
-scale = Vector2(41.184784, 14.748092)
+scale = Vector2(3.88, 3.88)
 texture = ExtResource("2_2gowf")
 
 [node name="ABlockA207A205" type="Sprite2D" parent="."]

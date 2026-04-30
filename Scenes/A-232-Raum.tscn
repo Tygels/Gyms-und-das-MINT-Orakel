@@ -166,8 +166,8 @@ metadata/_edit_lock_ = true
 script = ExtResource("3_he1wt")
 
 [node name="Spieler" parent="." instance=ExtResource("2_yk8p0")]
-position = Vector2(414, -301)
-scale = Vector2(1, 1)
+top_level = true
+position = Vector2(862, -595)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_t57i8")]
 position = Vector2(435, -382)

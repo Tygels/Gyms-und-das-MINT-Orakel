@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ftt2s6kynp"]
+[gd_scene load_steps=11 format=3 uid="uid://0ftt2s6kynp"]
 
 [ext_resource type="Script" uid="uid://0s7brssacbrx" path="res://Scripts/Spieler.tres.gd" id="1_2om84"]
 [ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="1_tihay"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="2_2om84"]
+[ext_resource type="Script" uid="uid://du6pi8cdg7kc4" path="res://Scripts/pokedex.gd" id="4_ge6n2"]
+[ext_resource type="Script" uid="uid://3n8epu5sk38a" path="res://Scripts/show_pokedex.gd" id="5_g5xsx"]
+[ext_resource type="Texture2D" uid="uid://6op1r5to601r" path="res://Dateien/Ui3h.png" id="5_tlead"]
+[ext_resource type="Texture2D" uid="uid://cq21a3qquxree" path="res://Dateien/Ui3.png" id="7_tlead"]
+[ext_resource type="Texture2D" uid="uid://ds1dxqluyqy7s" path="res://Dateien/LehrerKarten/Kartenbuch ( Gelb ).png" id="8_1lywn"]
+[ext_resource type="Texture2D" uid="uid://bhamalnmv60vx" path="res://Dateien/LehrerKarten/Kartenvorlage.png" id="9_0sy4o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2om84"]
 size = Vector2(97, 120)
 
 [node name="Spieler" type="Node2D"]
+top_level = true
 visibility_layer = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_2om84")
@@ -33,5 +40,57 @@ visible = false
 position = Vector2(-479, -270)
 scale = Vector2(0.5, 0.5)
 
+[node name="Pokedex" type="Node2D" parent="Spieler"]
+light_mask = 31
+visibility_layer = 31
+script = ExtResource("4_ge6n2")
+
+[node name="OpenButton" type="Button" parent="Spieler/Pokedex"]
+offset_left = 287.0
+offset_top = 214.0
+offset_right = 587.0
+offset_bottom = 304.0
+scale = Vector2(0.65, 0.65)
+icon = ExtResource("5_tlead")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Spieler/Pokedex"]
+visible = false
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 7295.999
+offset_bottom = 4098.9995
+scale = Vector2(0.1, 0.1)
+horizontal_scroll_mode = 0
+
+[node name="Kartenbuch(Gelb)" type="Sprite2D" parent="Spieler/Pokedex/ScrollContainer"]
+position = Vector2(3840, 2160)
+scale = Vector2(4.813, 4.813)
+texture = ExtResource("8_1lywn")
+
+[node name="GridContainer" type="GridContainer" parent="Spieler/Pokedex/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 300
+theme_override_constants/v_separation = 74
+columns = 6
+script = ExtResource("5_g5xsx")
+
+[node name="CloseButton" type="Button" parent="Spieler/Pokedex/ScrollContainer"]
+layout_mode = 2
+icon = ExtResource("7_tlead")
+
+[node name="Pop-Up" type="Sprite2D" parent="Spieler"]
+visible = false
+position = Vector2(262.00003, 139.00002)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("9_0sy4o")
+
 [connection signal="interact" from="." to="Spieler/Interaktion" method="_on_spieler_interact"]
+[connection signal="interact" from="." to="Spieler/Pokedex" method="_on_spieler_interact"]
+[connection signal="interact" from="." to="Spieler/Pop-Up" method="_on_spieler_interact"]
 [connection signal="exit_button_pressed" from="Spieler/Interaktion" to="." method="_on_interaktion_exit_button_pressed"]
+[connection signal="exit_button_pressed" from="Spieler/Interaktion" to="Spieler/Pokedex" method="_on_interaktion_exit_button_pressed"]
+[connection signal="button_up" from="Spieler/Pokedex/OpenButton" to="Spieler/Pokedex" method="_on_button_button_up"]
+[connection signal="button_up" from="Spieler/Pokedex/OpenButton" to="Spieler/Pokedex/ScrollContainer/GridContainer" method="_on_button_button_up"]
+[connection signal="button_up" from="Spieler/Pokedex/ScrollContainer/CloseButton" to="Spieler/Pokedex" method="_on_close_button_button_up"]
