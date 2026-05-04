@@ -1,12 +1,10 @@
 extends Control
 
 # ===============================
-# UI Nodes
+# UI Nodes & Requests
 # ===============================
 @onready var lineEdit: LineEdit = $Ui2/LineEdit
 @onready var textEdit: TextEdit = $Ui1/TextEdit
-
-# HTTP Requests
 @onready var ai_request: HTTPRequest = $Ui3/Button/HTTPRequest
 var log_request: HTTPRequest
 
@@ -14,31 +12,20 @@ var log_request: HTTPRequest
 var ai_server_url := "http://85.215.207.221:11434/api/chat"
 var log_server_url := "http://85.215.207.221:5000/api/json"
 
-# letzte Frage speichern
 var last_user_question: String = ""
+var prompt = ""
 
-# Referenz zum Hauptskript
+# Referenz für die Teacher_id (wird weiterhin vom Parent geholt)
 @onready var Interaktion = get_node("../..")
 
 # ===============================
-# Lehrer Prompts & Namen
+# READY
 # ===============================
-var prompt_Feldmann = "Du bist Frau Feldmann, Lehrerin für Deutsch und Philosophie in einem Lernspiel. Du darfst niemals direkte Lösungen geben. Gib nur Hinweise und Denkanstöße."
-var prompt_Langer = "Du bist Herr Langer, Lehrer für Physik und Mathematik in einem Lernspiel. Du darfst niemals Ergebnisse oder fertige Rechnungen nennen. Gib nur Denkschritte."
-var prompt_Klinkhammer = "Du bist Herr Klinkhammer, Lehrer für Englisch, Religion und Deutsch in einem Lernspiel. Gib niemals direkte Antworten, sondern Hinweise."
-var prompt_Heim = "Du bist Herr Heim, Lehrer für Mathematik und Biologie in einem Lernspiel. Gib niemals das Endergebnis."
-var prompt_Bachhausen = "Du bist Frau Bachhausen, Lehrerin für Musik und Deutsch in einem Lernspiel. Gib kreative Denkanstöße."
-var prompt_Gropper = "Du bist Herr Gropper, Lehrer für Englisch und Philosophie in einem Lernspiel. Gib nur Denkansätze."
-var prompt_Steinhoff = "Du bist Herr Steinhoff, Lehrer für Politik, Erdkunde und Sport in einem Lernspiel. Gib Hinweise und Fragen."
-var prompt_Christogeoros = "Du bist Herr Christogeoros, Lehrer für Englisch und Geschichte in einem Lernspiel."
-var prompt_Wagener = "Du bist Herr Wagener, Lehrer für Mathematik und Chemie in einem Lernspiel."
-var prompt_Achenbach = "Du bist Herr Achenbach, Lehrer für Erdkunde, Informatik und Mathematik in einem Lernspiel."
-var prompt_Matoussi = "Du bist Frau Matoussi, Lehrerin für Spanisch und Deutsch in einem Lernspiel."
-var prompt_Schmieding = "Du bist Herr Schmieding, Lehrer für Religion und Latein in einem Lernspiel."
-var prompt_Wutke = "Du bist Herr Wutke, Lehrer für Politik und Sozialwissenschaften in einem Lernspiel."
-var prompt_Bloem = "Du bist Herr Bloem, Lehrer für Mathe und Informatik in einem Lernspiel."
-
-var prompt = ""
+func _ready() -> void:
+	log_request = HTTPRequest.new()
+	add_child(log_request)
+	ai_request.request_completed.connect(_on_ai_request_request_completed)
+	lineEdit.grab_focus()
 
 # ===============================
 # HILFSFUNKTION: Lehrername ermitteln
@@ -62,36 +49,28 @@ func get_teacher_name(id: int) -> String:
 		_: return "Unbekannter Lehrer"
 
 # ===============================
-# READY
-# ===============================
-func _ready() -> void:
-	log_request = HTTPRequest.new()
-	add_child(log_request)
-	ai_request.request_completed.connect(_on_ai_request_request_completed)
-	lineEdit.grab_focus()
-
-# ===============================
 # KI FRAGE SENDEN
 # ===============================
 func ask_ai(user_question: String) -> void:
 	var teacher_id = Interaktion.Teacher_id
 
+	# Zuweisung der Lehrer-Prompts basierend auf der ID
 	match teacher_id:
-		1: prompt = prompt_Klinkhammer
-		2: prompt = prompt_Bachhausen
-		3: prompt = prompt_Achenbach
-		4: prompt = prompt_Wagener
-		5: prompt = prompt_Bloem
-		6: prompt = prompt_Christogeoros
-		7: prompt = prompt_Feldmann
-		8: prompt = prompt_Heim
-		9: prompt = prompt_Matoussi
-		10: prompt = prompt_Schmieding
-		11: prompt = prompt_Steinhoff
-		12: prompt = prompt_Wutke
-		13: prompt = prompt_Gropper
-		14: prompt = prompt_Langer
-		_: prompt = "Du bist ein hilfreicher Lehrer."
+		1: prompt = "Du bist Herr Klinkhammer, Lehrer für Englisch, Religion und Deutsch. Gib niemals direkte Antworten, sondern Hinweise."
+		2: prompt = "Du bist Frau Bachhausen, Lehrerin für Musik und Deutsch. Gib kreative Denkanstöße."
+		3: prompt = "Du bist Herr Achenbach, Lehrer für Erdkunde, Informatik und Mathematik. Gib Hinweise."
+		4: prompt = "Du bist Herr Wagener, Lehrer für Mathematik und Chemie. Gib Denkanstöße."
+		5: prompt = "Du bist Herr Bloem, Lehrer für Mathe und Informatik. Erkläre Konzepte schrittweise."
+		6: prompt = "Du bist Herr Christogeoros, Lehrer für Englisch und Geschichte."
+		7: prompt = "Du bist Frau Feldmann, Lehrerin für Deutsch und Philosophie. Gib nur Denkanstöße."
+		8: prompt = "Du bist Herr Heim, Lehrer für Mathematik und Biologie. Gib niemals das Endergebnis."
+		9: prompt = "Du bist Frau Matoussi, Lehrerin für Spanisch und Deutsch."
+		10: prompt = "Du bist Herr Schmieding, Lehrer für Religion und Latein."
+		11: prompt = "Du bist Herr Steinhoff, Lehrer für Politik, Erdkunde und Sport."
+		12: prompt = "Du bist Herr Wutke, Lehrer für Politik und Sozialwissenschaften."
+		13: prompt = "Du bist Herr Gropper, Lehrer für Englisch und Philosophie."
+		14: prompt = "Du bist Herr Langer, Lehrer für Physik und Mathematik."
+		_: prompt = "Du bist ein hilfreicher Lehrer in einem Lernspiel."
 
 	last_user_question = user_question
 
@@ -106,7 +85,6 @@ func ask_ai(user_question: String) -> void:
 	})
 
 	var error = ai_request.request(ai_server_url, headers, HTTPClient.METHOD_POST, body)
-
 	if error != OK:
 		_add_message_to_chat("System", "❌ Fehler beim Senden an die KI")
 
@@ -124,29 +102,27 @@ func _on_ai_request_request_completed(_result: int, response_code: int, _headers
 		return
 
 	var ai_reply: String = json["message"]["content"]
-	
-	# Namen für Chat und Log holen
 	var teacher_name = get_teacher_name(Interaktion.Teacher_id)
 	
 	_add_message_to_chat(teacher_name, ai_reply)
 	send_log_to_server(last_user_question, ai_reply, teacher_name)
 
 # ===============================
-# LOGGING (mit Lehrername)
+# LOGGING MIT GLOBALER SESSION ID
 # ===============================
 func send_log_to_server(user_question: String, ai_answer: String, teacher_name: String) -> void:
 	var headers := ["Content-Type: application/json"]
-	var timestamp := Time.get_datetime_string_from_system()
-
+	
+	# Hier wird die ID aus deinem SaveManager Autoload genutzt
 	var body := JSON.stringify({
+		"chat_id": SaveManager.session_id, 
 		"teacher_name": teacher_name,
 		"user_question": user_question,
 		"ai_answer": ai_answer,
-		"timestamp": timestamp
+		"timestamp": Time.get_datetime_string_from_system()
 	})
 
 	var error := log_request.request(log_server_url, headers, HTTPClient.METHOD_POST, body)
-
 	if error != OK:
 		print("❌ Fehler beim Logging")
 

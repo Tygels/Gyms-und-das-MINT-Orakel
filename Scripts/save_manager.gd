@@ -3,6 +3,7 @@ extends Node
 # "user://" is the persistent data directory that persists across game updates
 const SAVE_PATH = "user://playerprefs.cfg"
 var config = ConfigFile.new()
+var session_id: String = "h"
 
 func _ready() -> void:
 	load_data()
@@ -36,3 +37,23 @@ func _notification(what: int) -> void:
 
 func reset_defaults() -> void:
 	config.clear()
+	
+
+func create_new_session():
+	# 1. Zeitstempel im lesbaren Format (JJJJ-MM-TT_HH-MM-SS)
+	var datetime = Time.get_datetime_dict_from_system()
+	var timestamp = "%04d%02d%02d_%02d%02d%02d" % [
+		datetime.year, datetime.month, datetime.day,
+		datetime.hour, datetime.minute, datetime.second
+	]
+	
+	# 2. Ein zufälliger Suffix, falls zwei Leute exakt zur gleichen Sekunde starten
+	var random_suffix = str(randi() % 10000).pad_zeros(4)
+	
+	# 3. Zusammensetzen der ID
+	session_id = ("SESSION_" + timestamp + "_" + random_suffix)
+	
+	print("Neue Sitzung generiert: ", session_id)
+
+func clear_session():
+	session_id = ""
