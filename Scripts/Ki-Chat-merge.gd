@@ -1,7 +1,7 @@
 extends Control
 
 # ===============================
-# UI Nodes (neue Struktur)
+# UI Nodes
 # ===============================
 @onready var lineEdit: LineEdit = $Ui2/LineEdit
 @onready var textEdit: TextEdit = $Ui1/TextEdit
@@ -21,7 +21,7 @@ var last_user_question: String = ""
 @onready var Interaktion = get_node("../..")
 
 # ===============================
-# Lehrer Prompts
+# Lehrer Prompts & Namen
 # ===============================
 var prompt_Feldmann = "Du bist Frau Feldmann, Lehrerin für Deutsch und Philosophie in einem Lernspiel. Du darfst niemals direkte Lösungen geben. Gib nur Hinweise und Denkanstöße."
 var prompt_Langer = "Du bist Herr Langer, Lehrer für Physik und Mathematik in einem Lernspiel. Du darfst niemals Ergebnisse oder fertige Rechnungen nennen. Gib nur Denkschritte."
@@ -41,22 +41,39 @@ var prompt_Bloem = "Du bist Herr Bloem, Lehrer für Mathe und Informatik in eine
 var prompt = ""
 
 # ===============================
+# HILFSFUNKTION: Lehrername ermitteln
+# ===============================
+func get_teacher_name(id: int) -> String:
+	match id:
+		1: return "Herr Klinkhammer"
+		2: return "Frau Bachhausen"
+		3: return "Herr Achenbach"
+		4: return "Herr Wagener"
+		5: return "Herr Bloem"
+		6: return "Herr Christogeoros"
+		7: return "Frau Feldmann"
+		8: return "Herr Heim"
+		9: return "Frau Matoussi"
+		10: return "Herr Schmieding"
+		11: return "Herr Steinhoff"
+		12: return "Herr Wutke"
+		13: return "Herr Gropper"
+		14: return "Herr Langer"
+		_: return "Unbekannter Lehrer"
+
+# ===============================
 # READY
 # ===============================
 func _ready() -> void:
-
 	log_request = HTTPRequest.new()
 	add_child(log_request)
-
 	ai_request.request_completed.connect(_on_ai_request_request_completed)
-
 	lineEdit.grab_focus()
 
 # ===============================
 # KI FRAGE SENDEN
 # ===============================
 func ask_ai(user_question: String) -> void:
-
 	var teacher_id = Interaktion.Teacher_id
 
 	match teacher_id:
@@ -79,7 +96,6 @@ func ask_ai(user_question: String) -> void:
 	last_user_question = user_question
 
 	var headers = ["Content-Type: application/json"]
-
 	var body := JSON.stringify({
 		"model": "llama3.2",
 		"messages": [
@@ -89,14 +105,7 @@ func ask_ai(user_question: String) -> void:
 		"stream": false
 	})
 
-	print("Sende Anfrage an KI...")
-
-	var error = ai_request.request(
-		ai_server_url,
-		headers,
-		HTTPClient.METHOD_POST,
-		body
-	)
+	var error = ai_request.request(ai_server_url, headers, HTTPClient.METHOD_POST, body)
 
 	if error != OK:
 		_add_message_to_chat("System", "❌ Fehler beim Senden an die KI")
@@ -104,49 +113,39 @@ func ask_ai(user_question: String) -> void:
 # ===============================
 # KI ANTWORT EMPFANGEN
 # ===============================
-func _on_ai_request_request_completed(
-	_result: int,
-	response_code: int,
-	_headers: PackedStringArray,
-	body: PackedByteArray
-) -> void:
-
+func _on_ai_request_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code != 200:
 		_add_message_to_chat("System", "KI-Server Fehler: " + str(response_code))
 		return
 
 	var json : Variant = JSON.parse_string(body.get_string_from_utf8())
-
 	if json == null:
 		_add_message_to_chat("System", "Ungültige KI-Antwort")
 		return
 
 	var ai_reply: String = json["message"]["content"]
-
-	_add_message_to_chat("Lehrer", ai_reply)
-
-	send_log_to_server(last_user_question, ai_reply)
+	
+	# Namen für Chat und Log holen
+	var teacher_name = get_teacher_name(Interaktion.Teacher_id)
+	
+	_add_message_to_chat(teacher_name, ai_reply)
+	send_log_to_server(last_user_question, ai_reply, teacher_name)
 
 # ===============================
-# LOGGING
+# LOGGING (mit Lehrername)
 # ===============================
-func send_log_to_server(user_question: String, ai_answer: String) -> void:
-
+func send_log_to_server(user_question: String, ai_answer: String, teacher_name: String) -> void:
 	var headers := ["Content-Type: application/json"]
 	var timestamp := Time.get_datetime_string_from_system()
 
 	var body := JSON.stringify({
+		"teacher_name": teacher_name,
 		"user_question": user_question,
 		"ai_answer": ai_answer,
 		"timestamp": timestamp
 	})
 
-	var error := log_request.request(
-		log_server_url,
-		headers,
-		HTTPClient.METHOD_POST,
-		body
-	)
+	var error := log_request.request(log_server_url, headers, HTTPClient.METHOD_POST, body)
 
 	if error != OK:
 		print("❌ Fehler beim Logging")
@@ -161,25 +160,18 @@ func _on_line_edit_text_submitted(_text: String) -> void:
 	_submit_user_text()
 
 func _submit_user_text() -> void:
-
 	var user_text := lineEdit.text.strip_edges()
-
 	if user_text == "":
 		return
 
 	_add_message_to_chat("Du", user_text)
-
 	ask_ai(user_text)
-
 	lineEdit.text = ""
 
 # ===============================
 # CHAT ANZEIGE
 # ===============================
 func _add_message_to_chat(sender: String, message: String) -> void:
-
 	textEdit.text += sender + ": " + message + "\n"
-
-	# automatisch nach unten scrollen
 	textEdit.set_caret_line(textEdit.get_line_count())
 	textEdit.scroll_vertical = textEdit.get_line_count()
