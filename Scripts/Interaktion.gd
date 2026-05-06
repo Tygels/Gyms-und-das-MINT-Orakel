@@ -53,7 +53,7 @@ func _on_spieler_interact() -> void:
 	Teacher_id = Spieler.Teacher_id
 	match Teacher_id:
 		1: Teacher_portrait = load("res://Dateien/Klinkhammer.png")
-		2: Teacher_portrait = load("res://res://Dateien/Bachhausen2.png")
+		2: Teacher_portrait = load("res://Dateien/Bachhausen2.png")
 		3: Teacher_portrait = load("res://Dateien/Achenbach.png")
 		4: Teacher_portrait = load("res://Dateien/Wagener.png")
 		5: Teacher_portrait = load("res://Dateien/Bloem.png")
