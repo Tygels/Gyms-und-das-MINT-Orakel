@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba4s7bmbmj87j"]
+
+[ext_resource type="Texture2D" uid="uid://l1vdokj72yak" path="res://Dateien/A-Bock_Flur Chemie.png" id="1_rj7yw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rj7yw"]
+normal = Vector2(-0.9999962, 0.002772351)
+distance = 646.12506
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mh4q5"]
+normal = Vector2(0.99998605, -0.005269575)
+distance = 828.3092
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xyknf"]
+normal = Vector2(0.00085604086, 0.99999964)
+distance = 543.7631
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1g1ju"]
+normal = Vector2(0.003052636, -0.99999535)
+distance = 750.0957
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0awh"]
+size = Vector2(106, 436)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34wur"]
+size = Vector2(71.41803, 273.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pu1i"]
+size = Vector2(79, 40.037476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoika"]
+size = Vector2(76, 44.480103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mvnd"]
+size = Vector2(102, 35.80371)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ABockFlurChemie" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_rj7yw")
+
+[node name="Collisions" type="Node2D" parent="."]
+
+[node name="Worldborder1" type="StaticBody2D" parent="Collisions"]
+position = Vector2(933.11957, -1.8550415)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder1"]
+shape = SubResource("WorldBoundaryShape2D_rj7yw")
+
+[node name="Worldborder2" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-1109.3003, -3.3189697)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder2"]
+shape = SubResource("WorldBoundaryShape2D_mh4q5")
+
+[node name="Worldborder3" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-0.45007324, -1155.7612)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder3"]
+shape = SubResource("WorldBoundaryShape2D_xyknf")
+
+[node name="Worldborder4" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-1.2165527, 1371.1077)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder4"]
+shape = SubResource("WorldBoundaryShape2D_1g1ju")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
+position = Vector2(230.47818, -356.67877)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
+position = Vector2(-1.4781799, -16.321228)
+shape = SubResource("RectangleShape2D_s0awh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collisions"]
+position = Vector2(-251.41803, -500.94598)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
+position = Vector2(25.709015, 4.445984)
+shape = SubResource("RectangleShape2D_34wur")
+
+[node name="TürOben" type="Area2D" parent="."]
+position = Vector2(7.805847, -579.9625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TürOben"]
+position = Vector2(1.6941528, -10.018738)
+shape = SubResource("RectangleShape2D_4pu1i")
+
+[node name="TürRechts" type="Area2D" parent="."]
+position = Vector2(-226.82196, -322.5199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TürRechts"]
+position = Vector2(-1.1780396, -12.240051)
+shape = SubResource("RectangleShape2D_yoika")
+
+[node name="TürUnten" type="Area2D" parent="."]
+position = Vector2(-3.9514465, 594.1963)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TürUnten"]
+position = Vector2(4.9514465, 7.9018555)
+shape = SubResource("RectangleShape2D_3mvnd")
