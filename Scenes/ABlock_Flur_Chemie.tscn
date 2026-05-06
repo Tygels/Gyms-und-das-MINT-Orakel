@@ -92,6 +92,7 @@ shape = SubResource("RectangleShape2D_34wur")
 
 [node name="TürOben" type="Area2D" parent="."]
 position = Vector2(7.805847, -579.9625)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürOben"]
 position = Vector2(1.6941528, -10.018738)
@@ -99,6 +100,8 @@ shape = SubResource("RectangleShape2D_4pu1i")
 
 [node name="TürRechts" type="Area2D" parent="."]
 position = Vector2(-226.82196, -322.5199)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürRechts"]
 position = Vector2(3.8219604, -2.9801025)
@@ -106,6 +109,7 @@ shape = SubResource("RectangleShape2D_yoika")
 
 [node name="TürUnten" type="Area2D" parent="."]
 position = Vector2(-3.9514465, 594.1963)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürUnten"]
 position = Vector2(4.9514465, 7.9018555)

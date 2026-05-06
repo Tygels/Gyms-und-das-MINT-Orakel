@@ -148,7 +148,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_2om84")
 
 [node name="Spieler" type="CharacterBody2D" parent="."]
-collision_layer = 5
+collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Spieler"]
 scale = Vector2(2, 2)

@@ -7,9 +7,16 @@ func _ready() -> void:
 	SceneTransimissionAnimation.play("Fade_out")
 	$SceneTransimissionAnimation.visible = false
 
+func _on_tür_rechts_body_entered(body: Node2D) -> void:
+	if body.name == "Spieler":
+		$SceneTransimissionAnimation.visible = true
+		SceneTransimissionAnimation.play("Fade_in")
+		await  get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+		$SceneTransimissionAnimation.visible = false
 
 
-func _on_area_2d_body_entered(body) -> void:
+func _on_tür_links_body_entered(body: Node2D) -> void:
 	if body.name == "Spieler":
 		$SceneTransimissionAnimation.visible = true
 		SceneTransimissionAnimation.play("Fade_in")

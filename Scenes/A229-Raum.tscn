@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://5xx4yybp46a"]
+[gd_scene load_steps=22 format=3 uid="uid://5xx4yybp46a"]
 
 [ext_resource type="Texture2D" uid="uid://bt01j8nhjnnxv" path="res://Dateien/Klassenzimmer A229.png" id="1_lpqrl"]
+[ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_s0n0l"]
 [ext_resource type="Script" uid="uid://3d0sotepmkmj" path="res://Scripts/LehrerSpawnerA223.gd" id="2_r44nq"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="3_s0n0l"]
 [ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_vjbwx"]
@@ -21,7 +22,7 @@ normal = Vector2(0.9999992, -0.0012807107)
 distance = 181.2198
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjbwx"]
-size = Vector2(215, 41)
+size = Vector2(215, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ch2b"]
 size = Vector2(815, 115)
@@ -57,6 +58,8 @@ size = Vector2(119.999985, 50)
 size = Vector2(126, 58.000004)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_s0n0l")
 
 [node name="KlassenzimmerA229" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
@@ -68,6 +71,7 @@ texture = ExtResource("1_lpqrl")
 position = Vector2(6, -498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Worldborder1"]
+position = Vector2(-4, -1.5)
 shape = SubResource("WorldBoundaryShape2D_8vai1")
 
 [node name="Worldborder2" type="StaticBody2D" parent="Collisions"]
@@ -92,7 +96,7 @@ shape = SubResource("WorldBoundaryShape2D_s0n0l")
 position = Vector2(2.597046, -350.01697)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
-position = Vector2(-3.097046, -2.4830322)
+position = Vector2(-2.097046, -11.483032)
 shape = SubResource("RectangleShape2D_vjbwx")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Collisions"]
@@ -160,6 +164,7 @@ shape = SubResource("RectangleShape2D_2j1et")
 
 [node name="TürRechts" type="Area2D" parent="."]
 position = Vector2(-420.80917, -432.18036)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürRechts"]
 position = Vector2(-1.1908264, -23.819641)
@@ -167,6 +172,7 @@ shape = SubResource("RectangleShape2D_prwri")
 
 [node name="TürLinks" type="Area2D" parent="."]
 position = Vector2(433.44412, -459.03928)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürLinks"]
 position = Vector2(1.5558777, 4.039276)
@@ -182,3 +188,6 @@ scale = Vector2(1, 1)
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_vjbwx")]
 position = Vector2(289.63635, -477.909)
 metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="TürRechts" to="." method="_on_tür_rechts_body_entered"]
+[connection signal="body_entered" from="TürLinks" to="." method="_on_tür_links_body_entered"]

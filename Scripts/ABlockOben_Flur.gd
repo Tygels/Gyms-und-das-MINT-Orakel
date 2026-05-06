@@ -30,7 +30,7 @@ func _Teleport_A_232(body) -> void:
 		$"SceneTransimissionAnimation".visible = true
 		SceneTransimissionAnimation.play("Fade_in")
 		await  get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://Scenes/A-232-Raum.tscn")
+		get_tree().change_scene_to_file("res://Scenes/A229-Raum.tscn")
 		$"SceneTransimissionAnimation".visible = false
 
 
