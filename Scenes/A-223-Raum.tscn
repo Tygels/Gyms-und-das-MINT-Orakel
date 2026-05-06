@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bjuahv4rkar4e"]
 
-[ext_resource type="Script" uid="uid://de8fxpk35blcg" path="res://Scripts/ABlockOben-Teleport.gd" id="1_1hrn7"]
+[ext_resource type="Script" uid="uid://cjejwvfx51uf6" path="res://Scenes/ABlock_Flur_Chemie.gd" id="1_a6cfh"]
 [ext_resource type="Texture2D" uid="uid://bliodhhmb5qgm" path="res://Dateien/Klassenzimmer A223 - rote Tische.png" id="1_yf22a"]
 [ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_8utwl"]
 [ext_resource type="Script" uid="uid://3d0sotepmkmj" path="res://Scripts/LehrerSpawnerA223.gd" id="4_a6cfh"]
@@ -42,7 +42,7 @@ size = Vector2(28.212631, 135)
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_1hrn7")
+script = ExtResource("1_a6cfh")
 metadata/_edit_lock_ = true
 
 [node name="KlassenzimmerA223RoteTische" type="Sprite2D" parent="."]
@@ -144,8 +144,8 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_a6cfh")
 
 [node name="Spieler" parent="." instance=ExtResource("2_8utwl")]
-top_level = true
-position = Vector2(382, -694)
+position = Vector2(197, -366)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_wpqs6")]
 position = Vector2(289.63635, -477.909)

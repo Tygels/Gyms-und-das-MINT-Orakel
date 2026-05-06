@@ -1,6 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgo83mcodcy6w"]
+[gd_scene load_steps=15 format=3 uid="uid://bgo83mcodcy6w"]
 
 [ext_resource type="Texture2D" uid="uid://wow51g4nvoow" path="res://Dateien/Klassenzimmer A221.png" id="1_e57o7"]
+[ext_resource type="Script" uid="uid://3d0sotepmkmj" path="res://Scripts/LehrerSpawnerA223.gd" id="2_8f36i"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="3_igc3i"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_4tif2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x8aax"]
 normal = Vector2(-1, 0)
@@ -33,13 +36,13 @@ size = Vector2(63.49002, 385)
 size = Vector2(846.12286, 150.1983)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3y4e"]
-size = Vector2(112, 69)
+size = Vector2(225, 83.5)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="KlassenzimmerA221" type="Sprite2D" parent="."]
 position = Vector2(-4, 3)
-rotation = 0.008726646
+scale = Vector2(2, 2)
 texture = ExtResource("1_e57o7")
 
 [node name="Collisions" type="Node2D" parent="."]
@@ -144,5 +147,15 @@ shape = SubResource("RectangleShape2D_d8kcx")
 position = Vector2(421, -415)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tür"]
-position = Vector2(10, -21.5)
+position = Vector2(438.5, -473.75)
 shape = SubResource("RectangleShape2D_x3y4e")
+
+[node name="LehrerSpawner" type="Node" parent="."]
+script = ExtResource("2_8f36i")
+
+[node name="Spieler" parent="." instance=ExtResource("3_igc3i")]
+position = Vector2(624, -718)
+
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_4tif2")]
+position = Vector2(289.63635, -477.909)
+metadata/_edit_lock_ = true

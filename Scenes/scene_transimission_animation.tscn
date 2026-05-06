@@ -55,6 +55,8 @@ _data = {
 }
 
 [node name="SceneTransimissionAnimation" type="Node2D"]
+top_level = true
+visibility_layer = 16
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -10831.0

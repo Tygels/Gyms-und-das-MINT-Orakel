@@ -198,8 +198,8 @@ shape = SubResource("RectangleShape2D_hhyb7")
 script = ExtResource("2_l6es5")
 
 [node name="Spieler" parent="." instance=ExtResource("2_71dqj")]
-top_level = true
-position = Vector2(514, -602)
+position = Vector2(167.5, -281)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_jfq0s")]
 visibility_layer = 31

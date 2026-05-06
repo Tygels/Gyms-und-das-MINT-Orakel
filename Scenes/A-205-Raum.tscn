@@ -180,8 +180,8 @@ shape = SubResource("RectangleShape2D_6jun3")
 script = ExtResource("3_qnuns")
 
 [node name="Spieler" parent="." instance=ExtResource("2_fwpoi")]
-top_level = true
-position = Vector2(-743, -631)
+position = Vector2(-340, -342.5)
+scale = Vector2(1, 1)
 
 [node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_giayf")]
 position = Vector2(-391, -444)

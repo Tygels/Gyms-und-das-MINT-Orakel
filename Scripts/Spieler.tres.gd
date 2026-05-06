@@ -13,32 +13,72 @@ var LehrerConfig = ConfigFile.new()
 @onready var Pop_Up_Sprite = $"Spieler/Pop-Up"
 @onready var Pokedex = $Spieler/Pokedex/ScrollContainer
 
+# Assuming your AnimatedSprite2D is a child of this node
+@onready var animated_sprite = $Spieler/AnimatedSprite2D 
+
+# We store the last direction so we know which way to face when standing still
+var letzte_richtung = "unten" 
+
 func _ready() -> void:
 	connect("interacted", _on_lehrer_interacted)
 
 	LehrerConfig.load("Lehrer")
+
+
 func _physics_process(_delta):
 	var richtung = Vector2.ZERO
+	
+	# Combine your UI checks into one variable for cleaner reading
+	var can_move = (Interaktion.visible == false) and (Pokedex.visible == false)
+	
 	# Bewegungen
-	if Input.is_action_pressed("Bewegung_oben") and (Interaktion.visible == false) and (Pokedex.visible == false):
-		richtung.y -= 1
-	if Input.is_action_pressed("Bewegung_unten") and (Interaktion.visible == false) and (Pokedex.visible == false):
-		richtung.y += 1
-	
-	if Input.is_action_pressed("Bewegung_rechts") and (Interaktion.visible == false) and (Pokedex.visible == false):
-		richtung.x =+ 1
-	
-	if Input.is_action_pressed("Bewegung_links") and (Interaktion.visible == false) and (Pokedex.visible == false):
-		richtung.x =- 1
+	if can_move:
+		if Input.is_action_pressed("Bewegung_oben"):
+			richtung.y -= 1
+		if Input.is_action_pressed("Bewegung_unten"):
+			richtung.y += 1
+		if Input.is_action_pressed("Bewegung_rechts"):
+			richtung.x += 1 # Fixed from =+
+		if Input.is_action_pressed("Bewegung_links"):
+			richtung.x -= 1 # Fixed from =-
 	
 	# Normieren damit diagonale bewegungen nicht schneller sind
 	if richtung != Vector2.ZERO:
 		richtung = richtung.normalized()
-
+		_update_animations(richtung)
+	else:
+		_play_idle_animation()
 
 	spieler.velocity = richtung * speed
-
 	spieler.move_and_slide()
+
+# Custom function to handle moving animations
+func _update_animations(dir: Vector2):
+	# We check X axis first. If you prefer up/down to override left/right, 
+	# just swap the if/elif order.
+	if dir.x > 0:
+		animated_sprite.play("Rechts_Gehen")
+		letzte_richtung = "rechts"
+	elif dir.x < 0:
+		animated_sprite.play("Links_Gehen")
+		letzte_richtung = "links"
+	elif dir.y > 0:
+		animated_sprite.play("Unten_Gehen")
+		letzte_richtung = "unten"
+	elif dir.y < 0:
+		animated_sprite.play("Oben_Gehen")
+		letzte_richtung = "oben"
+
+# Custom function to handle standing still animations
+func _play_idle_animation():
+	if letzte_richtung == "rechts":
+		animated_sprite.play("Rechts_Stehen")
+	elif letzte_richtung == "links":
+		animated_sprite.play("Links_Stehen")
+	elif letzte_richtung == "unten":
+		animated_sprite.play("Unten_Stehen")
+	elif letzte_richtung == "oben":
+		animated_sprite.play("Oben_Stehen")
 
 
 func _on_lehrer_interacted(teacher_id: Variant) -> void:

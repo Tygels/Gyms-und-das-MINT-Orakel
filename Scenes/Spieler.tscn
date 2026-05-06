@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://0ftt2s6kynp"]
+[gd_scene load_steps=26 format=3 uid="uid://0ftt2s6kynp"]
 
 [ext_resource type="Script" uid="uid://0s7brssacbrx" path="res://Scripts/Spieler.tres.gd" id="1_2om84"]
 [ext_resource type="PackedScene" uid="uid://cf7dxolpk0me7" path="res://Scenes/Interaktion.tscn" id="1_tihay"]
 [ext_resource type="Texture2D" uid="uid://cuwkjkeufpwc5" path="res://test data/GymsTest-removebg-preview.png" id="2_2om84"]
+[ext_resource type="Texture2D" uid="uid://b1842k5hndk1q" path="res://Dateien/Gyms 2 Dragonsoft.png" id="2_vqmbk"]
+[ext_resource type="Texture2D" uid="uid://cfvprmxxqebc6" path="res://Dateien/Gyms 1 Dragonsoft.png" id="3_pu22s"]
 [ext_resource type="Script" uid="uid://du6pi8cdg7kc4" path="res://Scripts/pokedex.gd" id="4_ge6n2"]
 [ext_resource type="Script" uid="uid://3n8epu5sk38a" path="res://Scripts/show_pokedex.gd" id="5_g5xsx"]
 [ext_resource type="Texture2D" uid="uid://6op1r5to601r" path="res://Dateien/Ui3h.png" id="5_tlead"]
@@ -10,21 +12,151 @@
 [ext_resource type="Texture2D" uid="uid://ds1dxqluyqy7s" path="res://Dateien/LehrerKarten/Kartenbuch ( Gelb ).png" id="8_1lywn"]
 [ext_resource type="Texture2D" uid="uid://bhamalnmv60vx" path="res://Dateien/LehrerKarten/Kartenvorlage.png" id="9_0sy4o"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1ltr"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac454"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ophg"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdtbe"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(0, 130, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cct67"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(64, 130, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irt5g"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(64, 65, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veupo"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8vft"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwcu6"]
+atlas = ExtResource("2_vqmbk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pig1d"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(0, 65, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hohnd"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(64, 0, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8i4c"]
+atlas = ExtResource("3_pu22s")
+region = Rect2(0, 0, 64, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbhko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1ltr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac454")
+}],
+"loop": true,
+"name": &"Links_Gehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ophg")
+}],
+"loop": true,
+"name": &"Links_Stehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdtbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cct67")
+}],
+"loop": true,
+"name": &"Oben_Gehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irt5g")
+}],
+"loop": true,
+"name": &"Oben_Stehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veupo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8vft")
+}],
+"loop": true,
+"name": &"Rechts_Gehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwcu6")
+}],
+"loop": true,
+"name": &"Rechts_Stehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pig1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hohnd")
+}],
+"loop": true,
+"name": &"Unten_Gehen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8i4c")
+}],
+"loop": true,
+"name": &"Unten_Stehen",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2om84"]
 size = Vector2(97, 120)
 
 [node name="Spieler" type="Node2D"]
-top_level = true
 visibility_layer = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_2om84")
 
 [node name="Spieler" type="CharacterBody2D" parent="."]
-light_mask = 1023
-visibility_layer = 1023
-collision_layer = 4
+collision_layer = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Spieler"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cbhko")
+animation = &"Unten_Stehen"
 
 [node name="Sprite2D" type="Sprite2D" parent="Spieler"]
+visible = false
 position = Vector2(4, 4.0625)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2om84")

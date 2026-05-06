@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba4s7bmbmj87j"]
+[gd_scene load_steps=15 format=3 uid="uid://ba4s7bmbmj87j"]
 
+[ext_resource type="Script" uid="uid://o5g3p2r3pt05" path="res://a_block_flur_chemie_Teleport.gd" id="1_rh7h6"]
 [ext_resource type="Texture2D" uid="uid://l1vdokj72yak" path="res://Dateien/A-Bock_Flur Chemie.png" id="1_rj7yw"]
+[ext_resource type="Texture2D" uid="uid://fafq13rg1lem" path="res://Dateien/Screenshot 2026-03-17 185527.png" id="2_5xcob"]
+[ext_resource type="PackedScene" uid="uid://0ftt2s6kynp" path="res://Scenes/Spieler.tscn" id="2_cf0m2"]
+[ext_resource type="PackedScene" uid="uid://xi2tnv44bt7i" path="res://Scenes/scene_transimission_animation.tscn" id="4_5xcob"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rj7yw"]
 normal = Vector2(-0.9999962, 0.002772351)
@@ -34,6 +38,13 @@ size = Vector2(76, 44.480103)
 size = Vector2(102, 35.80371)
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rh7h6")
+
+[node name="Screenshot20260317185527" type="Sprite2D" parent="."]
+position = Vector2(42.75, -106)
+scale = Vector2(2.4375508, 1.7456446)
+texture = ExtResource("2_5xcob")
 
 [node name="ABockFlurChemie" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
@@ -90,7 +101,7 @@ shape = SubResource("RectangleShape2D_4pu1i")
 position = Vector2(-226.82196, -322.5199)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürRechts"]
-position = Vector2(-1.1780396, -12.240051)
+position = Vector2(3.8219604, -2.9801025)
 shape = SubResource("RectangleShape2D_yoika")
 
 [node name="TürUnten" type="Area2D" parent="."]
@@ -99,3 +110,13 @@ position = Vector2(-3.9514465, 594.1963)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TürUnten"]
 position = Vector2(4.9514465, 7.9018555)
 shape = SubResource("RectangleShape2D_3mvnd")
+
+[node name="Spieler" parent="." instance=ExtResource("2_cf0m2")]
+scale = Vector2(1, 1)
+
+[node name="SceneTransimissionAnimation" parent="." instance=ExtResource("4_5xcob")]
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="TürOben" to="." method="_on_tür_oben_body_entered"]
+[connection signal="body_entered" from="TürRechts" to="." method="_on_tür_rechts_body_entered"]
+[connection signal="body_entered" from="TürUnten" to="." method="_on_tür_unten_body_entered"]
